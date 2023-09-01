@@ -1,0 +1,18 @@
+$color-principal: #145858;
+$color-secundario: #c8e0ca;
+$color-terciario: #f7b318;
+$color-cuartiario: #ffffff;
+
+
+ion-app {
+    
+    ion-router-outlet {
+
+        // --background: rgb(20,88,88);
+        // --background: linear-gradient(180deg, rgba(20,88,88,1) 0%, rgba(200,224,202,1) 70%, rgba(255,255,255,1) 100%);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+    }
+
+    
+}

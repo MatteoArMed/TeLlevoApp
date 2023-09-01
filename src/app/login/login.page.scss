@@ -1,0 +1,53 @@
+$color-principal: #145858;
+$color-secundario: #c8e0ca;
+$color-terciario: #f7b318;
+$color-cuartiario: #ffffff;
+
+ion-header{
+    color: $color-principal;
+}
+
+
+ion-content {
+    --background: rgb(20,88,88);
+    --background: linear-gradient(180deg, rgba(20,88,88,1) 0%, rgba(200,224,202,1) 70%, rgba(255,255,255,1) 100%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+    .titulo{
+        display: flex;
+        color: $color-secundario;
+        text-align: center;
+        justify-content: center;
+    }
+
+    ion-input{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        border: 1px solid $color-terciario; 
+        max-width: 22em;
+        margin: 1em;
+        border-radius: 1em;
+        
+    }
+    ion-label{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        color: $color-cuartiario;
+    }
+
+    .inicioSesion {
+        color:$color-cuartiario;
+        max-width: 22em;
+        margin-left: 1em;
+    }
+
+    .cancelarSesion {
+        color:$color-cuartiario;
+        max-width: 22em;
+        margin-left: 1em;
+
+    }
+
+}
