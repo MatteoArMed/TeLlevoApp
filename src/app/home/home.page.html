@@ -19,11 +19,11 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
-        <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+        <ion-input type="text" [(ngModel)]="nombre" class="move-animation"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Apellido</ion-label>
-        <ion-input type="text" [(ngModel)]="apellido"></ion-input>
+        <ion-input type="text" [(ngModel)]="apellido" class="move-animation"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Nivel de Educación</ion-label>
@@ -35,15 +35,22 @@
       </ion-item>
       <ion-item>
         <ion-label>Fecha de Nacimiento</ion-label>
-        <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="fechaNacimiento"></ion-datetime>
       </ion-item>
-
-      <ion-button expand="full" (click)="limpiarCampos()" class="move-animation">Limpiar</ion-button>
-      <ion-button expand="full" (click)="mostrarInformacion()" class="move-animation">Mostrar</ion-button>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button color="primary"  (click)="limpiarCampos()" >Limpiar</button>
+      <button mat-raised-button color="primary" expand="full" (click)="mostrarInformacion()" >Mostrar</button>
     </ion-card-content>
   </ion-card>
 </ion-content>
 
 <ion-footer>
-    <ion-title>App desarrollada por: Scarlett Socías</ion-title>
+  <ion-toolbar>
+    <ion-title>App desarrollada por: Scarlett Socías y Mateo Araneda</ion-title>
+  </ion-toolbar>
 </ion-footer>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular'; // Importa AnimationController
 
 @Component({
@@ -18,7 +19,8 @@ export class HomePage {
   constructor(
     private route: ActivatedRoute,
     private toastController: ToastController,
-    private animationCtrl: AnimationController // Agrega AnimationController
+    private animationCtrl: AnimationController, // Agrega AnimationController
+    private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -34,7 +36,7 @@ export class HomePage {
     const animation = this.animationCtrl
       .create()
       .addElement(document.querySelectorAll('.move-animation'))
-      .fromTo('transform', 'translateX(-100%)', 'translateX(0)')
+      .fromTo('transform', 'translateX(0%)', 'translateX(100%)')
       .duration(1000); // Duración de 1 segundo
 
     await animation.play();
@@ -47,16 +49,18 @@ export class HomePage {
   }
 
   // Función para mostrar la información en un mensaje emergente
-  async mostrarInformacion() {
-    const mensaje = `Su nombre es: ${this.nombre}`;
+  mostrarInformacion() {
+ 
+    (this.nombre!="" && this.apellido!="") &&
+    this.alertaMensaje("Usuario", "Su nombre es " + this.nombre + " " + this.apellido);
+  }
 
-    const toast = await this.toastController.create({
-      header: 'Usuario',
-      message: mensaje,
-      duration: 5000, // Duración del mensaje emergente en milisegundos
-      position: 'bottom', // Posición del mensaje emergente
-    });
-
-    await toast.present();
+  async alertaMensaje(titulo:string, mensaje:string){
+    const alerta = await this.alertController.create(({
+      header:titulo,
+      message:mensaje,
+      buttons:['Okey']
+    }));
+    await alerta.present();
   }
 }
