@@ -1,0 +1,30 @@
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Skeleton App</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+  <div class="titulo">
+      <h1>SkeletonApp</h1>
+      <br>
+      <h6>Aqui comenzó todo</h6>
+      <h1>Bienvenido!</h1>
+  </div>
+  <div class="inicioSesion">
+      <ion-label>Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="username"></ion-input>
+      <ion-label>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+      <ion-button fill="solid" (click)="login()" class="inicio">Ingresar</ion-button>
+      <a href="/index" class="registro">Crear tu cuenta gratis</a>
+    </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>App desarrollada por: Scarlett Socías</ion-title>
+  </ion-toolbar>
+</ion-footer>
