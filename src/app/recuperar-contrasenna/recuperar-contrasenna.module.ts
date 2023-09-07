@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { RecuperarContrasennaPageRoutingModule } from './recuperar-contrasenna-routing.module';
 
-import { LoginPage } from './login.page';
+import { RecuperarContrasennaPage } from './recuperar-contrasenna.page';
 
 import {MatButtonModule} from '@angular/material/button';
 
@@ -15,9 +15,13 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
+    RecuperarContrasennaPageRoutingModule,
     MatButtonModule
   ],
-  declarations: [LoginPage]
+  declarations: [RecuperarContrasennaPage]
 })
-export class LoginPageModule {}
+export class RecuperarContrasennaPageModule {}
+
+
+
+
