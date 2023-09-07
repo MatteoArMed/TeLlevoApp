@@ -1,9 +1,3 @@
-$color-principal: #522b5b;
-$color-secundario: #854f6c;
-$color-terciario: #dfb6b2;
-$letras: #fbe4d8;
-$color-cuartiario: #ffffff;
-
 #container {
   text-align: center;
 
@@ -30,45 +24,4 @@ $color-cuartiario: #ffffff;
 
 #container a {
   text-decoration: none;
-}
-
-@keyframes slideAndFade {
-  0%, 100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateX(100%);
-    opacity: 0.2;
-  }
-}
-
-ion-title {
-  animation: slideAndFade 5s infinite, slideAndFadeReverse 5s infinite;
-  /* 5s es la duración de la animación (2500ms + 2500ms) */
-}
-
-@keyframes slideAndFadeReverse {
-  0%, 100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateX(-100%);
-    opacity: 0.2;
-  }
-}
-
-@keyframes moveLeftToRight {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-ion-input.move-animation {
-  animation: moveLeftToRight 1s;
-  animation-fill-mode: forwards; /* Mantener la última posición de la animación */
 }

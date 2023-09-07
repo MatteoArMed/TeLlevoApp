@@ -7,24 +7,26 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
   </ion-header>
-  <div class="titulo">
-      <h1>SkeletonApp</h1>
-      <br>
-      <h6>Aqui comenzó todo</h6>
-      <h1>Bienvenido!</h1>
-  </div>
-  <div class="inicioSesion">
+  <h1 class="titulo"> Inicio de Sesión</h1>
+  <div class="mt-5">
+    <div>
       <ion-label>Usuario</ion-label>
-      <ion-input type="text" [(ngModel)]="username"></ion-input>
+      <ion-input></ion-input>
       <ion-label>Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-      <button mat-raised-button color="primary" (click)="login()" class="inicio">Ingresar</button>
-      <a href="/index" class="registro">Crear tu cuenta gratis</a>
+      <ion-input type="password"></ion-input>
+      <ion-button fill="outline" expand="block" class="inicioSesion">Iniciar Sesión</ion-button>
+      <ion-button fill="outline" expand="block" class="cancelarSesion">Cancelar</ion-button>
+      <p>
+        Este parrafo lo usaremos de prueba para poder cuadrar todo el contenido 
+      </p>
+      
     </div>
+  </div>
 </ion-content>
-
 <ion-footer>
   <ion-toolbar>
-    <ion-title>App desarrollada por: Scarlett Socías y Mateo Araneda</ion-title>
+    <ion-title>
+      Footer
+    </ion-title>
   </ion-toolbar>
 </ion-footer>

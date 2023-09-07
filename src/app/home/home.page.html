@@ -1,56 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>SkeletonApp</ion-title>
+    <ion-title>
+      Blank
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
+      <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Bienvenido, {{ username }}</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input type="text" [(ngModel)]="nombre" class="move-animation"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Apellido</ion-label>
-        <ion-input type="text" [(ngModel)]="apellido" class="move-animation"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Nivel de Educación</ion-label>
-        <ion-select [(ngModel)]="nivelEducacion">
-          <ion-select-option value="Basica">Básica</ion-select-option>
-          <ion-select-option value="Media">Media</ion-select-option>
-          <ion-select-option value="Superior">Superior</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Fecha de Nacimiento</ion-label>
-      </ion-item>
-      <mat-form-field>
-        <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <button mat-raised-button color="primary"  (click)="limpiarCampos()" >Limpiar</button>
-      <button mat-raised-button color="primary" expand="full" (click)="mostrarInformacion()" >Mostrar</button>
-    </ion-card-content>
-  </ion-card>
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-title>App desarrollada por: Scarlett Socías y Mateo Araneda</ion-title>
-  </ion-toolbar>
-</ion-footer>
