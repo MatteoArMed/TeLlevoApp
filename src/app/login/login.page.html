@@ -1,6 +1,6 @@
   <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title>Skeleton App</ion-title>
+      <ion-title>TeLlevoApp</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -8,9 +8,12 @@
   <ion-header collapse="condense">
   </ion-header>
   <div class="titulo">
-      <h1>SkeletonApp</h1>
       <br>
-      <h6>Aqui comenzó todo</h6>
+      <h1>TeLlevoApp</h1>
+      <br>
+      <div class="imagen">
+        <ion-img src="../../assets/icon/Logo.png">Logo aplicación</ion-img>
+      </div>
       <h1>Bienvenido!</h1>
   </div>
   <div class="inicioSesion">
@@ -18,8 +21,9 @@
       <ion-input type="text" [(ngModel)]="username"></ion-input>
       <ion-label>Contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="password"></ion-input>
-      <button mat-raised-button color="primary" (click)="login()" class="inicio">Ingresar</button>
-      <a href="/index" class="registro">Crear tu cuenta gratis</a>
+      <button mat-raised-button color="primary" (click)="login()" class="inicio">Inicia Sesión</button>
+      <br>
+      <a href="/recuperar-contrasenna" (click)="CambioVentanaRecuperar()" class="registro">¿Olvidaste tu contraseña?</a>
     </div>
 </ion-content>
 

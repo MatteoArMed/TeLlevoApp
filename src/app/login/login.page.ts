@@ -37,6 +37,10 @@ export class LoginPage implements OnInit {
     }
   }
 
+  async CambioVentanaRecuperar(){
+    this.router.navigate(['/recuperar-contrasenna'])
+  }
+
   validarCredenciales(usuarioIngresado: string, contraseñaIngresada: string): boolean {
     // Buscar si las credenciales coinciden con la lista de usuarios válidos
     const usuarioValido = this.usuariosValidos.find(usuario => {

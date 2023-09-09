@@ -37,7 +37,7 @@ export class HomePage {
       .create()
       .addElement(document.querySelectorAll('.move-animation'))
       .fromTo('transform', 'translateX(0%)', 'translateX(100%)')
-      .duration(1000); // Duración de 1 segundo
+      .duration(3000); // Duración de 1 segundo
 
     await animation.play();
 
