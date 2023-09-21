@@ -14,15 +14,26 @@ export class RecuperarContrasennaPage implements OnInit {
   ngOnInit() {
   }
 
+  correoElectronico: string = '';
+
   async CambioVentana(){
     this.router.navigate(['/login'])
   }
 
   async mostrarMensajeError() {
-    const toast = await this.toastController.create({
-      message: 'Credenciales incorrectas. Inténtalo nuevamente.',
-      duration: 2000
-    });
-    await toast.present();
+    if (this.correoElectronico.trim() === ''){
+      const toast = await this.toastController.create({
+        message: 'Credenciales incorrectas. Inténtalo nuevamente.',
+        duration: 2000
+      });
+      await toast.present();
+    } else {
+      this.CambioVentana()
+      const toast = await this.toastController.create({
+        message: 'Se ha enviado un correo con la nueva contraseña',
+        duration: 2000
+      });
+      await toast.present();
+    }
   }
 }
