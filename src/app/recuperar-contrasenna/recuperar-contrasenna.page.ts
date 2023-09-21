@@ -23,7 +23,7 @@ export class RecuperarContrasennaPage implements OnInit {
   async mostrarMensajeError() {
     if (this.correoElectronico.trim() === ''){
       const toast = await this.toastController.create({
-        message: 'Credenciales incorrectas. Inténtalo nuevamente.',
+        message: 'Credenciales incorrectas. Por favor inténtalo nuevamente.',
         duration: 2000
       });
       await toast.present();
