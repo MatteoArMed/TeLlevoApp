@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { BlancoPageRoutingModule } from './blanco-routing.module';
 
 import { BlancoPage } from './blanco.page';
+import { MenuComponent } from '../menu/menu.component';
+
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { BlancoPage } from './blanco.page';
     IonicModule,
     BlancoPageRoutingModule
   ],
-  declarations: [BlancoPage]
+  declarations: [BlancoPage,MenuComponent]
 })
-export class BlancoPageModule {}
+export class BlancoPageModule {
+}

@@ -1,0 +1,34 @@
+<!-- Ion-menu permite crear un menu al costado de la pagina 
+Con menuType le damos una propiedad de como queremos que sea este menu
+  existen tres tipos de menu
+  Overlay : Este se sobrepone al contenido de la pagina
+  Reveal : Este se encuentra por debajo de la pagina y se mueve en funcion de esta
+  Push : Este empuja la pagina al lado opuesto de donde se encuentra el menu
+-->
+<ion-menu [type]="menuType" content-id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Contenido</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item [routerLink]="[('/home')]" >Inicio</ion-item>
+      <ion-item [routerLink]="[('/login')]">Login</ion-item>
+      <ion-item [routerLink]="[('/registro')]">Registro</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    Todo lo que ira dentro del contenido de esta pagina debe ir dentro de un content
+  </ion-content>
+</div>
