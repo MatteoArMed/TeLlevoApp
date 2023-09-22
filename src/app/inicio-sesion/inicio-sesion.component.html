@@ -1,0 +1,19 @@
+  <div class="titulo">
+    <br>
+    <h1>TeLlevoApp</h1>
+    <br>
+    <div class="imagen">
+      <ion-img src="../../assets/icon/Logo.png">Logo aplicación</ion-img>
+    </div>
+    <h1>¡Bienvenido!</h1>
+
+  </div>
+  <div class="inicioSesion">
+    <ion-label>Usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="username"></ion-input>
+    <ion-label>Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+    <ion-button class="inicio">Inicia Sesión</ion-button>
+    <br>
+    <a [routerLink]="[('/recuperar-contrasenna')]"  class="registro">¿Olvidaste tu contraseña?</a>  
+  </div>

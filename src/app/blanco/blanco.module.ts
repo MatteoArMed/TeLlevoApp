@@ -8,7 +8,7 @@ import { BlancoPageRoutingModule } from './blanco-routing.module';
 
 import { BlancoPage } from './blanco.page';
 import { MenuComponent } from '../menu/menu.component';
-
+import { InicioSesionComponent } from '../inicio-sesion/inicio-sesion.component';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { MenuComponent } from '../menu/menu.component';
     IonicModule,
     BlancoPageRoutingModule
   ],
-  declarations: [BlancoPage,MenuComponent]
+  declarations: [BlancoPage,MenuComponent,InicioSesionComponent,]
 })
 export class BlancoPageModule {
 }
