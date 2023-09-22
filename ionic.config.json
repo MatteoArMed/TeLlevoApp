@@ -1,7 +1,5 @@
 {
-  "name": "SkeletonApp",
-  "integrations": {
-    "capacitor": {}
-  },
+  "name": "AppNueva",
+  "integrations": {},
   "type": "angular"
 }
