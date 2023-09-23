@@ -7,16 +7,13 @@
   </ion-header>
   <ion-content [fullscreen]="true">
     <ion-list>
-
           <ion-item [routerLink]="[('/home')]" >Inicio</ion-item>
-        <ion-nav-link router-direction="forward" [component]="">
           <ion-item [routerLink]="[('/')]" >Test</ion-item>
-        </ion-nav-link>
     </ion-list>
   </ion-content>
 </ion-menu>
 <div class="ion-page" id="main-content">
-  <ion-header>
+  <!-- <ion-header>
     <ion-toolbar>
       <ion-buttons slot="end">
         <ion-button>
@@ -32,10 +29,11 @@
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
     </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
+  </ion-header> -->
+  <ion-content class="ion-padding ion-text-center">
   <div class="container">
-      <ion-img src="../../assets/icon/Logo.png">Logo aplicación</ion-img>
+    <ion-img src="../../assets/icon/TellevoappLogo.png" class="Logo">Logo</ion-img>
+      <ion-img src="../../assets/icon/Logo.png" class="imagenAuto">Logo aplicación</ion-img>
       <ion-label>Usuario</ion-label>
       <ion-input [(ngModel)]="username"></ion-input>
       <ion-label>Contraseña</ion-label>

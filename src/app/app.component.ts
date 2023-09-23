@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-import { LoginPage } from './login/login.page';
-import { MetodosFuncionesService } from './componentes/metodos-funciones.service';
-import { HomePage } from './home/home.page';
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -16,10 +16,7 @@ import { HomePage } from './home/home.page';
 
 export class AppComponent {
   constructor(private toastController: ToastController, private router: Router,) {}
-  
-  componente = LoginPage;
-  componenteHome = HomePage;
-  
+
     // Lista de usuarios válidos y sus contraseñas
     usuariosValidos = [
       { usuario: 'data@duocuc.cl', contraseña: '1234' },
@@ -27,7 +24,6 @@ export class AppComponent {
       { usuario: 'Matteo', contraseña: '1234'},
     ];
     
-
 
     validarCredenciales(Data: string, Data1: string): boolean {
       // Buscar si las credenciales coinciden con la lista de usuarios válidos
@@ -46,10 +42,10 @@ export class AppComponent {
   
       if (credencialesValidas) {
         const toast = await this.toastController.create({
-          message: 'Credenciales válidas. Bienvenido de vuelta.',
+          message: 'Credenciales válidas. Bienvenido de vuelta.'+{usuarioIngresado},
           duration: 2000
         });
-        this.router.navigate(['/login'], { queryParams: { username: usuarioIngresado } });
+        this.router.navigate(['/home'], { queryParams: { username: usuarioIngresado } });
         await toast.present();
       } else {
         const toast = await this.toastController.create({

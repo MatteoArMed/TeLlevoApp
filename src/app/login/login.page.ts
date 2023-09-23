@@ -35,6 +35,7 @@ export class LoginPage implements OnInit {
     const contraseña = this.password;
 
     this.componente.login(username,contraseña);
+
   }
 }
 
