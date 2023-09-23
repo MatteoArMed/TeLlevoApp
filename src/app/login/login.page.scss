@@ -1,11 +1,27 @@
 
 ion-content{
-    
-    div{
-        margin-top: 3em;
-    }
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     --background: rgb(17,32,56);
     --background: linear-gradient(180deg, rgba(17,32,56,1) 0%, rgba(49,79,136,0.7) 30%, rgba(133,124,182,0.72) 63%, rgba(57,53,78,1) 100%);
-    margin-top: 1em;
+
+    ion-input{
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border: solid 1px black;
+        max-width: 26em;
+    }
     
+    ion-button{
+        margin-top: 1em;
+    }
+
+
+    div{
+        display: grid;
+        place-items: center;
+        padding: 1em;
+        border: dotted 0.1em black;
+        margin-top: 3em;
+        max-width: 32em;
+    }
 }

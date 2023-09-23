@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
+import { LoginPage } from './login/login.page';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -8,7 +10,8 @@ import { ToastController } from '@ionic/angular';
 })
 export class AppComponent {
   constructor(private toastController: ToastController) {}
-
+  
+  componente = LoginPage;
 
     // Funcion para verificar que el correo ingresado sea del dominio de duocuc
     async validarCorreo(Data: string){

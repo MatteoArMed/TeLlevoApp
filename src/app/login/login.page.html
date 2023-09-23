@@ -1,14 +1,46 @@
 
-<ion-content class="ion-padding" [fullscreen]="true">
-  
-    <div class="inicioSesion">
+<ion-menu contentId="main-content">
+  <ion-header [translucent]="true">
+      <ion-toolbar>
+          <ion-title>Menu</ion-title>
+      </ion-toolbar>
+  </ion-header>
+  <ion-content [fullscreen]="true">
+    <ion-list>
+        <ion-nav-link router-direction="forward" [component]="homePage">
+          <ion-item [routerLink]="[('/')]" >Inicio</ion-item>
+        </ion-nav-link>
+        <ion-nav-link router-direction="forward" [component]="">
+          <ion-item [routerLink]="[('/')]" >Test</ion-item>
+        </ion-nav-link>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+        </ion-button>
+        <ion-button>
+          <ion-icon slot="icon-only" name="search"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+      </ion-buttons>
+      <ion-buttons side="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+  <div class="container">
       <ion-label>Usuario</ion-label>
-      <ion-input type="text" [(ngModel)]="username"></ion-input>
+      <ion-input [ngModel]="username"></ion-input>
       <ion-label>Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-      <button mat-raised-button color="primary"  class="inicio">Inicia Sesión</button>
-      <br>
-      <a [routerLink]="[('/')]" class="registro">¿Olvidaste tu contraseña?</a>
+      <ion-input [ngModel]="password" type="password"></ion-input>
+      <ion-button>Iniciar Sesión</ion-button>
     </div>
-</ion-content>
-
+  </ion-content>
+</div>
