@@ -14,7 +14,7 @@
               <ion-item [routerLink]="[('/')]" >Login</ion-item>
             </ion-nav-link>
             <ion-nav-link router-direction="forward" [component]="">
-              <ion-item [routerLink]="[('/')]" >back</ion-item>
+              <ion-item [routerLink]="[('/')]" >No</ion-item>
             </ion-nav-link>
       </ion-list>
     </ion-content>
@@ -23,7 +23,7 @@
         <ion-header>
         <ion-toolbar>
             <ion-buttons slot="end">
-                <ion-label>Bienvenido,</ion-label>
+                <ion-label>Bienvenido,{{ this.username}} </ion-label>
                 <ion-button>
                     <ion-icon slot="icon-only" name="person-circle"></ion-icon>
                 </ion-button>

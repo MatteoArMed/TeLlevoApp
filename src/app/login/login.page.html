@@ -36,11 +36,15 @@
   </ion-header>
   <ion-content class="ion-padding">
   <div class="container">
+      <ion-img src="../../assets/icon/Logo.png">Logo aplicación</ion-img>
       <ion-label>Usuario</ion-label>
       <ion-input [ngModel]="username"></ion-input>
       <ion-label>Contraseña</ion-label>
       <ion-input [ngModel]="password" type="password"></ion-input>
-      <ion-button>Iniciar Sesión</ion-button>
+      <ion-button (click)="validarCorreo()">Iniciar Sesión</ion-button>
+      <ion-nav-link router-direction="forward" [component]="homePage">
+        <ion-button>¿Olvidaste tu contraseña?</ion-button>
+      </ion-nav-link>
     </div>
   </ion-content>
 </div>

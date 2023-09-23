@@ -10,6 +10,8 @@ import { LoginPage } from '../login/login.page';
 export class HomePage {
 
   LoginPage = LoginPage;
+  username: string = ''
+  
   constructor() {}
   
 
