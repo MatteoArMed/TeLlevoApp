@@ -7,9 +7,8 @@
   </ion-header>
   <ion-content [fullscreen]="true">
     <ion-list>
-        <ion-nav-link router-direction="forward" [component]="homePage">
-          <ion-item [routerLink]="[('/')]" >Inicio</ion-item>
-        </ion-nav-link>
+
+          <ion-item [routerLink]="[('/home')]" >Inicio</ion-item>
         <ion-nav-link router-direction="forward" [component]="">
           <ion-item [routerLink]="[('/')]" >Test</ion-item>
         </ion-nav-link>
@@ -38,10 +37,10 @@
   <div class="container">
       <ion-img src="../../assets/icon/Logo.png">Logo aplicación</ion-img>
       <ion-label>Usuario</ion-label>
-      <ion-input [ngModel]="username"></ion-input>
+      <ion-input [(ngModel)]="username"></ion-input>
       <ion-label>Contraseña</ion-label>
-      <ion-input [ngModel]="password" type="password"></ion-input>
-      <ion-button (click)="validarCorreo()">Iniciar Sesión</ion-button>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+      <ion-button (click)="FunciondeValidacion()">Iniciar Sesión</ion-button>
       <ion-nav-link router-direction="forward" [component]="homePage">
         <ion-button>¿Olvidaste tu contraseña?</ion-button>
       </ion-nav-link>
