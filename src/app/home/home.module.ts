@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
+import { BarraPrincipalComponent } from '../barra-principal/barra-principal.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { HomePageRoutingModule } from './home-routing.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
+    
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,BarraPrincipalComponent]
 })
 export class HomePageModule {}

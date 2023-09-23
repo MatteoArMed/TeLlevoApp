@@ -7,7 +7,8 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private toastController: ToastController) {}
+  constructor(private toastController: ToastController,) {}
+
 
     // Funcion para verificar que el correo ingresado sea del dominio de duocuc
     async validarCorreo(Data: string){
@@ -22,7 +23,7 @@ export class AppComponent {
       const correoValido = verificarCorreo(Data);
       if (correoValido){
         const toast = await this.toastController.create({
-          message: 'Correo válido, puedes entrar',
+          message: 'Correo válido, puedes entrar.',
           duration: 2000
         });
         await toast.present();
@@ -34,4 +35,5 @@ export class AppComponent {
         await toast.present();
       }
     }
-}
+
+  }

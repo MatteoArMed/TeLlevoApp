@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { AppComponent } from '../app.component';
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,12 +8,8 @@ import { AppComponent } from '../app.component';
 
 export class HomePage {
 
-  constructor(private principal:AppComponent) {}
+  constructor() {}
   
-  username: string= '';
 
-  validar(username: string){
-    this.principal.validarCorreo(username)
-  }
 
 }
