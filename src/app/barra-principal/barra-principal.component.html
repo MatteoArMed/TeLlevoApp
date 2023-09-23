@@ -1,16 +1,16 @@
 
 <ion-menu contentId="main-content">
-  <ion-header>
+  <ion-header [translucent]="true">
       <ion-toolbar>
           <ion-title>Contenido</ion-title>
       </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
+  <ion-content [fullscreen]="true">
     <ion-list>
-      <ion-item>Inicio</ion-item>
-      <ion-item>Contacto</ion-item>
-      <ion-item>Registro</ion-item>
-      <ion-item>FAQ</ion-item>
+      <ion-item [routerLink]="[('/home')]" >Inicio</ion-item>
+      <ion-item [routerLink]="[('/login')]" >Login</ion-item>
+      <ion-item [routerLink]="[('/')]" >Registro</ion-item>
+      <ion-item [routerLink]="[('/')]" >FAQ</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -18,6 +18,7 @@
   <ion-header>
       <ion-toolbar>
         <ion-buttons slot="end">
+          <ion-label>Bienvenido, {{ this.username }} </ion-label>
           <ion-button>
             <ion-icon slot="icon-only" name="person-circle"></ion-icon>
           </ion-button>

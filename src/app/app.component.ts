@@ -7,7 +7,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private toastController: ToastController,) {}
+  constructor(private toastController: ToastController) {}
 
 
     // Funcion para verificar que el correo ingresado sea del dominio de duocuc

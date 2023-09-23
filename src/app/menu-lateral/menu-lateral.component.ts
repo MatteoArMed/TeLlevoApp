@@ -12,13 +12,6 @@ export class MenuLateralComponent  implements OnInit {
   ngOnInit() {}
   
 
-    // public lista_rutas: ListaRutas[] = [
-    //   { name: 'Inicio', ruta: '/', icon: 'home-outline'},
-    //   { name: 'Contacto', ruta: '/', icon: 'person-circle'},
-
-    // ]
-  
-
 
   
 }

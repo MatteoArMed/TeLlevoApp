@@ -14,7 +14,7 @@ import { BarraPrincipalComponent } from '../barra-principal/barra-principal.comp
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    
+
   ],
   declarations: [HomePage,BarraPrincipalComponent]
 })

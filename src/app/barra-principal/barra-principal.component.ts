@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -8,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarraPrincipalComponent  implements OnInit {
 
+  username: string=''
 
-  constructor() { }
+  constructor(private router: Router,) { }
 
   ngOnInit() {}
+
+  async vistaLogin(){
+    this.router.navigate(['/login'])
+  }
+  async vistaHome(){
+    this.router.navigate(['/home'])
+  }
 
 }

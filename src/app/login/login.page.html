@@ -1,5 +1,6 @@
-<ion-content class="ion-padding">
 
+<ion-content class="ion-padding" [fullscreen]="true">
+  
     <div class="inicioSesion">
       <ion-label>Usuario</ion-label>
       <ion-input type="text" [(ngModel)]="username"></ion-input>
@@ -7,8 +8,7 @@
       <ion-input type="password" [(ngModel)]="password"></ion-input>
       <button mat-raised-button color="primary"  class="inicio">Inicia Sesión</button>
       <br>
-      <a href="/recuperar-contrasenna" (click)="CambioVentanaRecuperar()" class="registro">¿Olvidaste tu contraseña?</a>
+      <a [routerLink]="[('/')]" class="registro">¿Olvidaste tu contraseña?</a>
     </div>
-    
 </ion-content>
 
