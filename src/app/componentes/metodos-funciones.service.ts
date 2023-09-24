@@ -9,6 +9,8 @@ export class MetodosFuncionesService {
   
   constructor(private toastController: ToastController,private router: Router,) { }
 
+
+
   // Lista de usuarios válidos y sus contraseñas
   usuariosValidos = [
     { usuario: 'data@duocuc.cl', contraseña: '1234' },
@@ -16,9 +18,11 @@ export class MetodosFuncionesService {
     { usuario: 'Matteo', contraseña: '1234'},
   ];
 
+
   vistaRecuperar(){
     return this.router.navigate(['/recuperar-contrasenna'])
   };
+
 
   validarCredenciales(Data: string, Data1: string): boolean {
     // Buscar si las credenciales coinciden con la lista de usuarios válidos
@@ -30,27 +34,32 @@ export class MetodosFuncionesService {
     return !!usuarioValido;
   }
 
-  async login(usuarioIngresado: string,contraseñaIngresada: string,) {
+  async login(usuarioIngresado: string, contraseñaIngresada: string) {
 
     // Validar las credenciales
     const credencialesValidas = this.validarCredenciales(usuarioIngresado, contraseñaIngresada);
-    
-
-
+  
+    // Tomamos el usuario para enviarlo a la pagina Home
+    const navigationExtras: NavigationExtras = {
+      queryParams: { username: usuarioIngresado },
+    };
+  
     if (credencialesValidas) {
       const toast = await this.toastController.create({
-        message: 'Bienvenido de vuelta, '+{usuarioIngresado}+'. Te estabamos esperando.',
+        message: 'Bienvenido de vuelta, ' + usuarioIngresado + '.',
         duration: 2000
       });
-      this.router.navigate(['/home'], { queryParams: { username: usuarioIngresado } });
+      this.router.navigate(['/home'], navigationExtras);
       await toast.present();
     } else {
       const toast = await this.toastController.create({
         message: 'Credenciales Inválidas. Por favor inténtalo nuevamente.',
         duration: 2000
       });
-      await toast.present();      }
+      await toast.present();
+    }
   }
+
 
   // Funcion para verificar que el correo ingresado sea del dominio de duocuc
   async validarCorreo(Data: string){

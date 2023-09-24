@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AppComponent } from 'src/app/app.component';
 
@@ -9,7 +10,7 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private componente: AppComponent,) { }
+  constructor(private componente: AppComponent,private router: Router) { }
 
   username: string = '';
   password: string = '';
@@ -27,7 +28,7 @@ export class LoginPage implements OnInit {
   }
 
   async vistaRecuperar(){
-    this.componente.vistaRecuperar();
+    this.router.navigate(['recuperar-contrasenna'])
   }
 
 }

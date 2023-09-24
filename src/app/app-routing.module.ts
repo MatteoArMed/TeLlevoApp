@@ -21,9 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./vista/recuperar-contrasenna/recuperar-contrasenna.module').then( m => m.RecuperarContrasennaPageModule)
   },
   {
-    path: '**',
-    redirectTo: 'home'
+    path: 'page404',
+    loadChildren: () => import('./vista/page404/page404.module').then( m => m.Page404PageModule)
   }
+
 
 ];
 

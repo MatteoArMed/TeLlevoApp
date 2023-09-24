@@ -10,8 +10,6 @@ import { MetodosFuncionesService } from './componentes/metodos-funciones.service
   styleUrls: ['app.component.scss'],
 })
 
-
-
 export class AppComponent {
   constructor(private toastController: ToastController, private router: Router,private metodos: MetodosFuncionesService) {}
 

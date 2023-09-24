@@ -1,20 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
+interface QueryParams {
+  username?: string;
+}
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
+
 export class HomePage implements OnInit {
-  constructor(private router: Router) {}
-
-  ngOnInit() {
+  constructor(private router: Router,private activeroute: ActivatedRoute) {
   }
-
-  selectedSegment: string = 'home'; // Inicializa con el valor predeterminado
   username: string = ''
 
+  ngOnInit() {
+    this.activeroute.queryParams.subscribe((queryParams: QueryParams) => {
+      this.username = queryParams['username'] || '';
+    });
+  }
+  
+  selectedSegment: string = 'home'; // Inicializa con el valor predeterminado
+
+  
   
   segmentChanged() {
     // Aquí, puedes realizar la navegación basada en el segmento seleccionado
