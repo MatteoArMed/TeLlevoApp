@@ -4,58 +4,35 @@ $color-terciario: #dfb6b2;
 $letras: #fbe4d8;
 $color-cuartiario: #ffffff;
 
-
-
-
 ion-content{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    --background: rgb(17,32,56);
     --background: linear-gradient(180deg, rgba(17,32,56,1) 0%, rgba(49,79,136,0.7) 30%, rgba(133,124,182,0.72) 63%, rgba(57,53,78,1) 100%);
+    
+    ion-img{
+        
+        max-width: 6em;
+        animation: moveLeftToRight 4s linear infinite;
+        animation-delay: 3s;
+        }
+}
 
-    ion-card{
-        text-align: center;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        max-width: 30em;
+    h1 {
+    animation: slideAndFade 10s infinite, slideAndFadeReverse 10s infinite;
+    /* 5s es la duración de la animación (2500ms + 2500ms) */
+}
 
-    }
-
-    
-    .container strong {
-        font-size: 20px;
-        line-height: 26px;
-    }
-    
-    .container p {
-        font-size: 16px;
-        line-height: 22px;
-    
-        color: #8c8c8c;
-    
-        margin: 0;
-    }
-    
-    .container a {
-        text-decoration: none;
-    }
-    ion-input.carro {
-        animation: moveLeftToRight 1s;
-        animation-fill-mode: forwards; /* Mantener la última posición de la animación */
-    }
 
     @keyframes slideAndFade {
-    0%, 100% {
+    100% {
         transform: translateX(0);
         opacity: 1;
     }
     50% {
-        transform: translateX(100%);
-        opacity: 0.2;
+        transform: translateX(10%);
+        opacity: 1;
     }
     }
+
     @keyframes slideAndFadeReverse {
     0%, 100% {
         transform: translateX(0);
@@ -66,13 +43,12 @@ ion-content{
         opacity: 0.2;
     }
     }
-    
+
     @keyframes moveLeftToRight {
     0% {
-        transform: translateX(-100%);
+        transform: translateX(-50vw);
     }
     100% {
-        transform: translateX(0);
+        transform: translateX(100vw);
     }
     }
-}

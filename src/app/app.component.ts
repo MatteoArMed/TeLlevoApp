@@ -20,7 +20,7 @@ export class AppComponent {
       { usuario: 'Matteo', contraseña: '1234'},
     ];
     
-
+    
     // Validacion del servicio de validacion
     public validacionLogin (Data: string,Data2: string){
       return this.metodos.login(Data,Data2)
