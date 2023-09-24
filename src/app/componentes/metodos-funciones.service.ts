@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +9,17 @@ export class MetodosFuncionesService {
   
   constructor(private toastController: ToastController,private router: Router,) { }
 
-      // Lista de usuarios válidos y sus contraseñas
-      usuariosValidos = [
-        { usuario: 'data@duocuc.cl', contraseña: '1234' },
-        { usuario: 'Tais', contraseña: '1234' },
-        { usuario: 'Matteo', contraseña: '1234'},
-      ];
-  
+  // Lista de usuarios válidos y sus contraseñas
+  usuariosValidos = [
+    { usuario: 'data@duocuc.cl', contraseña: '1234' },
+    { usuario: 'Tais', contraseña: '1234' },
+    { usuario: 'Matteo', contraseña: '1234'},
+  ];
+
+  vistaRecuperar(){
+    return this.router.navigate(['/recuperar-contrasenna'])
+  };
+
   validarCredenciales(Data: string, Data1: string): boolean {
     // Buscar si las credenciales coinciden con la lista de usuarios válidos
     const usuarioValido = this.usuariosValidos.find(usuario => {
@@ -30,10 +34,12 @@ export class MetodosFuncionesService {
 
     // Validar las credenciales
     const credencialesValidas = this.validarCredenciales(usuarioIngresado, contraseñaIngresada);
+    
+
 
     if (credencialesValidas) {
       const toast = await this.toastController.create({
-        message: 'Credenciales válidas. Bienvenido de vuelta.'+{usuarioIngresado},
+        message: 'Bienvenido de vuelta, '+{usuarioIngresado}+'. Te estabamos esperando.',
         duration: 2000
       });
       this.router.navigate(['/home'], { queryParams: { username: usuarioIngresado } });

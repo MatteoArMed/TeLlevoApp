@@ -10,11 +10,6 @@ ion-content{
     --background: rgb(17,32,56);
     --background: linear-gradient(180deg, rgba(17,32,56,1) 0%, rgba(49,79,136,0.7) 30%, rgba(133,124,182,0.72) 63%, rgba(57,53,78,1) 100%);
 
-    // ion-img{
-    //     position: block;
-    //     margin-left: 15%;
-    //     max-width: 250px;
-    // }
     .imagenAuto{
         max-width: 250px;
         margin-left: 6em;
@@ -30,22 +25,13 @@ ion-content{
     
     ion-button{
         color: $letras;
-        margin-top: 1em;
+        margin: 1em;
     }
 
     ion-nav-link{
         margin-bottom: 1em;
         margin-top: 1em;
     }
-
-    // div{
-    //     display: grid;
-    //     place-items: center;
-    //     padding: 1em;
-    //     border: dotted 0.1em black;
-    //     margin-top: 3em;
-    //     max-width: 32em;
-    // }
 
     div {
         position: absolute;
@@ -61,6 +47,5 @@ ion-content{
         margin-top: 3em;
         max-width: 32em;
     }
-      
-            
+
 }

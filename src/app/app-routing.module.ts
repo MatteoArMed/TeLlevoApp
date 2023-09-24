@@ -4,28 +4,26 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./vista/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'home',
     loadChildren: () => import('./vista/home/home.module').then( m => m.HomePageModule)
-  },  {
+  },
+  {
     path: 'recuperar-contrasenna',
     loadChildren: () => import('./vista/recuperar-contrasenna/recuperar-contrasenna.module').then( m => m.RecuperarContrasennaPageModule)
   },
-
-
-
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
 
 ];
 
