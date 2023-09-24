@@ -1,13 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>page404</ion-title>
+    <ion-title>SkeletonApp</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">page404</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+
+  <div class="container">
+    <ion-card >  
+      <ion-input type="text" class="carro" [(ngModel)]="carro"></ion-input>
+      <ion-button (click)="Animaciones()">click</ion-button>
+      <ion-button (click)="alertaMensaje('Alerta','Mensaje')">Alerta</ion-button>
+    </ion-card>
+  </div>
+  
 </ion-content>

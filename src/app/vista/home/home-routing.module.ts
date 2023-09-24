@@ -2,11 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { DatosPersonalesComponent } from 'src/app/componentes/datos-personales/datos-personales.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: HomePage,
+    children: [
+      {
+        path: 'heart',
+        component: DatosPersonalesComponent
+      }
+    ]
   }
 ];
 

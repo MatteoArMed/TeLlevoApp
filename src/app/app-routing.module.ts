@@ -25,7 +25,6 @@ const routes: Routes = [
     loadChildren: () => import('./vista/page404/page404.module').then( m => m.Page404PageModule)
   }
 
-
 ];
 
 @NgModule({

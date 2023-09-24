@@ -9,8 +9,6 @@ export class MetodosFuncionesService {
   
   constructor(private toastController: ToastController,private router: Router,) { }
 
-
-
   // Lista de usuarios válidos y sus contraseñas
   usuariosValidos = [
     { usuario: 'data@duocuc.cl', contraseña: '1234' },
@@ -49,7 +47,7 @@ export class MetodosFuncionesService {
   
     if (credencialesValidas) {
       const toast = await this.toastController.create({
-        message: 'Bienvenido de vuelta, ' + usuarioIngresado + '.',
+        message: 'Bienvenid@ de vuelta, ' + usuarioIngresado + '.',
         duration: 2000
       });
       this.router.navigate(['/home'], navigationExtras);
@@ -64,10 +62,12 @@ export class MetodosFuncionesService {
   }
 
   async validarCorreo(Data: string): Promise<boolean> {
+
     // Aquí se realiza la validación del correo electrónico
     const emailRegex = /^[a-zA-Z0-9._%+-]+@duocuc\.cl$/;
     const correoValido = emailRegex.test(Data);
   
+    // Proceso de validacion 
     if (correoValido) {
       const toast = await this.toastController.create({
         message: 'Correo válido.',
@@ -81,37 +81,7 @@ export class MetodosFuncionesService {
       });
       await toast.present();
     }
-  
     // Devuelve true si el correo es válido, false si no lo es
     return correoValido;
-  }
-  
-  // // Funcion para verificar que el correo ingresado sea del dominio de duocuc
-  // async validarCorreo(Data: string){
-  //   // Aqui se valida que el texto ingresado contenga los caracteres especificos requeridos
-  //   const emailRegex = /^[a-zA-Z0-9._%+-]+@duocuc\.cl$/;
-    
-
-  //   // Aqui se valida que el correo cumpla con lo establecido devolviendo un valor boolean
-  //   function verificarCorreo(Data: string): boolean {
-  //     return emailRegex.test(Data);
-  //   }
-
-  //   // Aqui es donde se realiza la validacion del correo electronico
-  //   const correoValido = verificarCorreo(Data);
-  //   if (correoValido){
-  //     const toast = await this.toastController.create({
-  //       message: 'Correo válido.',
-  //       duration: 2000
-  //     });
-  //     await toast.present();
-  //   } else {
-  //     const toast = await this.toastController.create({
-  //       message: 'Correo inválido. Por favor inténtalo nuevamente.',
-  //       duration: 2000
-  //     });
-  //     await toast.present();
-  //   }
-  // }
-
+  } 
 }
