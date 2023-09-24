@@ -23,6 +23,9 @@ export class MetodosFuncionesService {
     return this.router.navigate(['/recuperar-contrasenna'])
   };
 
+  vistaLogin(){
+    return this.router.navigate(['/login'])
+  }
 
   validarCredenciales(Data: string, Data1: string): boolean {
     // Buscar si las credenciales coinciden con la lista de usuarios válidos
@@ -60,21 +63,12 @@ export class MetodosFuncionesService {
     }
   }
 
-
-  // Funcion para verificar que el correo ingresado sea del dominio de duocuc
-  async validarCorreo(Data: string){
-    // Aqui se valida que el texto ingresado contenga los caracteres especificos requeridos
+  async validarCorreo(Data: string): Promise<boolean> {
+    // Aquí se realiza la validación del correo electrónico
     const emailRegex = /^[a-zA-Z0-9._%+-]+@duocuc\.cl$/;
-    
-
-    // Aqui se valida que el correo cumpla con lo establecido devolviendo un valor boolean
-    function verificarCorreo(Data: string): boolean {
-      return emailRegex.test(Data);
-    }
-
-    // Aqui es donde se realiza la validacion del correo electronico
-    const correoValido = verificarCorreo(Data);
-    if (correoValido){
+    const correoValido = emailRegex.test(Data);
+  
+    if (correoValido) {
       const toast = await this.toastController.create({
         message: 'Correo válido.',
         duration: 2000
@@ -87,6 +81,37 @@ export class MetodosFuncionesService {
       });
       await toast.present();
     }
+  
+    // Devuelve true si el correo es válido, false si no lo es
+    return correoValido;
   }
+  
+  // // Funcion para verificar que el correo ingresado sea del dominio de duocuc
+  // async validarCorreo(Data: string){
+  //   // Aqui se valida que el texto ingresado contenga los caracteres especificos requeridos
+  //   const emailRegex = /^[a-zA-Z0-9._%+-]+@duocuc\.cl$/;
+    
+
+  //   // Aqui se valida que el correo cumpla con lo establecido devolviendo un valor boolean
+  //   function verificarCorreo(Data: string): boolean {
+  //     return emailRegex.test(Data);
+  //   }
+
+  //   // Aqui es donde se realiza la validacion del correo electronico
+  //   const correoValido = verificarCorreo(Data);
+  //   if (correoValido){
+  //     const toast = await this.toastController.create({
+  //       message: 'Correo válido.',
+  //       duration: 2000
+  //     });
+  //     await toast.present();
+  //   } else {
+  //     const toast = await this.toastController.create({
+  //       message: 'Correo inválido. Por favor inténtalo nuevamente.',
+  //       duration: 2000
+  //     });
+  //     await toast.present();
+  //   }
+  // }
 
 }

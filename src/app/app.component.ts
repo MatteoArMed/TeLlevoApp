@@ -30,4 +30,11 @@ export class AppComponent {
       return this.metodos.vistaRecuperar()
     }
 
+    public validaCorreo(Data: string){
+      return this.metodos.validarCorreo(Data)
+    }
+
+    public vistaLogin(){
+      return this.metodos.vistaLogin()
+    }
   }

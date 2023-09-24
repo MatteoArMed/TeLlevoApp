@@ -1,13 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>recuperarContrasenna</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">recuperarContrasenna</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="container">
+    <ion-img src="../../assets/icon/LogoRosado.png" class="Logo">Logo</ion-img>
+    <ion-label>Correo Electronico</ion-label>
+    <ion-input [(ngModel)]="correoElectronico" placeholder="correo@duocuc.cl"></ion-input>
+    <ion-button (click)="validaCorreo()" >Recuperar contraseña</ion-button>
+    <ion-button (click)="vistaLogin()" >¿Quieres volver?</ion-button>
+    <ion-label>Ingresa el tu correo con el que tienes registrada tu cuenta.</ion-label>
+  </div>
 </ion-content>
