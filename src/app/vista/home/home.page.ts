@@ -10,13 +10,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class HomePage implements OnInit {
   constructor(private router: Router,private activeroute: ActivatedRoute) {
+    const state = window.history.state;
+    if (state && state.username) {
+      this.username = state.username;
+    }
   }
   username: string = ''
 
   ngOnInit() {
-    this.activeroute.queryParams.subscribe((params) => {
-      this.username = params['username'];
-    });
+
   }
   
   selectedSegment: string = 'home'; // Inicializa con el valor predeterminado

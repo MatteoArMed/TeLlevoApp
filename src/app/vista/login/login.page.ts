@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AppComponent } from 'src/app/app.component';
+import { MetodosFuncionesService } from 'src/app/componentes/metodos-funciones.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,9 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private componente: AppComponent,private router: Router) { }
+  constructor(private componente: AppComponent,private router: Router,private metodos: MetodosFuncionesService) { }
+
+  
 
   username: string = '';
   password: string = '';

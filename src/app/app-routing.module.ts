@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { PerroGuardianGuard } from './perro-guardian.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'page404',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
+
   {
     path: 'login',
     loadChildren: () => import('./vista/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'home',
-    loadChildren: () => import('./vista/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./vista/home/home.module').then( m => m.HomePageModule),
+    canActivate:[PerroGuardianGuard]
   },
   {
     path: 'recuperar-contrasenna',

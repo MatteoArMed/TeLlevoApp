@@ -35,31 +35,42 @@ export class MetodosFuncionesService {
     return !!usuarioValido;
   }
 
+  capturarUsuario(usuario: string): void {
+    localStorage.setItem('usuario', usuario);
+  }
+
+  obtenerUsuario(): string | null {
+    return localStorage.getItem('usuario');
+  }
+
   async login(usuarioIngresado: string, contraseñaIngresada: string) {
 
-    // Validar las credenciales
-    const credencialesValidas = this.validarCredenciales(usuarioIngresado, contraseñaIngresada);
-  
-    // Tomamos el usuario para enviarlo a la pagina Home
-    const navigationExtras: NavigationExtras = {
-      queryParams: { username: usuarioIngresado },
-    };
-  
-    if (credencialesValidas) {
-      const toast = await this.toastController.create({
-        message: 'Bienvenid@ de vuelta, ' + usuarioIngresado + '.',
-        duration: 2000
-      });
-      this.router.navigate(['/home'], navigationExtras);
-      await toast.present();
-    } else {
-      const toast = await this.toastController.create({
-        message: 'Credenciales Inválidas. Por favor inténtalo nuevamente.',
-        duration: 2000
-      });
-      await toast.present();
+      // Validar las credenciales
+      const credencialesValidas = this.validarCredenciales(usuarioIngresado, contraseñaIngresada);
+    
+      // Tomamos el usuario para enviarlo a la pagina Home
+      const navigationExtras: NavigationExtras = {
+        state: { username: usuarioIngresado },
+      };
+    
+      if (credencialesValidas) {
+        const toast = await this.toastController.create({
+          message: 'Bienvenid@ de vuelta, ' + usuarioIngresado + '.',
+          duration: 2000
+        });
+        this.capturarUsuario(usuarioIngresado);
+        this.router.navigate(['/home'], navigationExtras);
+        await toast.present();
+      } else {
+        const toast = await this.toastController.create({
+          message: 'Credenciales Inválidas. Por favor inténtalo nuevamente.',
+          duration: 2000
+        });
+        await toast.present();
+      }
+    
     }
-  }
+
 
   async validarCorreo(Data: string): Promise<boolean> {
 
@@ -83,5 +94,6 @@ export class MetodosFuncionesService {
     }
     // Devuelve true si el correo es válido, false si no lo es
     return correoValido;
+    
   } 
 }
