@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { DatosPersonalesComponent } from 'src/app/componentes/datos-personales/datos-personales.component';
+import { CertificacionesComponent } from 'src/app/componentes/certificaciones/certificaciones.component';
+import { ExperienciaComponent } from 'src/app/componentes/experiencia/experiencia.component';
 
 const routes: Routes = [
   {
@@ -10,8 +12,16 @@ const routes: Routes = [
     component: HomePage,
     children: [
       {
-        path: 'heart',
+        path: 'datos',
         component: DatosPersonalesComponent
+      },
+      {
+        path:'certificaciones',
+        component: CertificacionesComponent
+      },
+      {
+        path: 'experiencia',
+        component: ExperienciaComponent
       }
     ]
   }

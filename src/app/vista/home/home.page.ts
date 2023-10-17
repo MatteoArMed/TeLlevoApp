@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { AppComponent } from 'src/app/app.component';
+import { RecuperarContrasennaPage } from '../recuperar-contrasenna/recuperar-contrasenna.page';
 
 @Component({
   selector: 'app-home',
@@ -9,35 +10,26 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 export class HomePage implements OnInit {
-  constructor(private router: Router,private activeroute: ActivatedRoute) {
+  constructor(private router: Router,private activeroute: ActivatedRoute, private metodos: AppComponent) {
     const state = window.history.state;
     if (state && state.username) {
       this.username = state.username;
     }
   }
+  
   username: string = ''
 
   ngOnInit() {
 
   }
   
-  selectedSegment: string = 'home'; // Inicializa con el valor predeterminado
-  
-  segmentChanged() {
-    // Aquí, puedes realizar la navegación basada en el segmento seleccionado
-    switch (this.selectedSegment) {
-      case 'heart':   // <== Corresponde al value
-        this.router.navigate(['heart']);
-        break;
-      case 'home':
-        this.router.navigate(['home']);
-        break;
-      case 'person': 
-        this.router.navigate(['person']);
-        break;
-      default:
-        // En caso de no ser alguno de lo que esten, no hace nada.
-        break;
-    }
+  async vistahome(){
+    return this.metodos.vistaLogin()
+    
   }
+
+  selectedSegment: string = 'certificaciones'; // Inicializa con el valor predeterminado
+  
+
+
 }

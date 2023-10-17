@@ -23,6 +23,7 @@ export class MetodosFuncionesService {
 
   vistaLogin(){
     return this.router.navigate(['/login'])
+    
   }
 
   validarCredenciales(Data: string, Data1: string): boolean {

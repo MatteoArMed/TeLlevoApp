@@ -52,7 +52,7 @@ export class Page404Page implements OnInit {
 
   // Función para mostrar la información en un mensaje emergente
   mostrarInformacion() {
- 
+    
     (this.nombre!="" && this.apellido!="") &&
     this.alertaMensaje("Usuario", "Su nombre es " + this.nombre + " " + this.apellido);
   }
@@ -67,23 +67,4 @@ export class Page404Page implements OnInit {
   }
   
 
-  selectedSegment: string = 'home'; // Inicializa con el valor predeterminado
-  
-  segmentChanged() {
-    // Aquí, puedes realizar la navegación basada en el segmento seleccionado
-    switch (this.selectedSegment) {
-      case 'heart':   // <== Corresponde al value
-        this.router.navigate(['heart']);
-        break;
-      case 'home':
-        this.router.navigate(['home']);
-        break;
-      case 'person': 
-        this.router.navigate(['person']);
-        break;
-      default:
-        // En caso de no ser alguno de lo que esten, no hace nada.
-        break;
-    }
-  }
 }

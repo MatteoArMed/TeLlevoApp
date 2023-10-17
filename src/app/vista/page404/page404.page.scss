@@ -10,11 +10,10 @@ ion-content{
     
     ion-img{
         
-        max-width: 6em;
-        animation: moveLeftToRight 4s linear infinite;
-        animation-delay: 3s;
-        }
-}
+        max-width: 6em;           
+        animation: moveLeftToRight 5s linear infinite;
+        } 
+    }  
 
     h1 {
     animation: slideAndFade 10s infinite, slideAndFadeReverse 10s infinite;

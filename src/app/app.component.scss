@@ -4,3 +4,8 @@ $color-terciario: #dfb6b2;
 $letras: #fbe4d8;
 $color-cuartiario: #ffffff;
 
+ion-router-outlet{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --background: linear-gradient(180deg, rgba(17,32,56,1) 0%, rgba(49,79,136,0.7) 30%, rgba(133,124,182,0.72) 63%, rgba(57,53,78,1) 100%);
+
+}

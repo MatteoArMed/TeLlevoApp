@@ -8,7 +8,14 @@ import { Router } from '@angular/router';
 })
 export class DatosPersonalesComponent  implements OnInit {
 
-  constructor(private router: Router) { }
+  username: string = '';
+  
+  constructor(private router: Router) { 
+    const state = window.history.state;
+    if (state && state.username) {
+      this.username = state.username;
+    }
+  }
 
   ngOnInit() {}
 

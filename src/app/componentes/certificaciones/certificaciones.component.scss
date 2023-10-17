@@ -1,0 +1,38 @@
+
+ion-card{
+    position: grid;
+    max-width: 16em;
+    
+
+}
+
+@keyframes slideAndFade {
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(10%);
+        opacity: 1;
+    }
+    }
+
+    @keyframes slideAndFadeReverse {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-100%);
+        opacity: 0.2;
+    }
+    }
+
+    @keyframes moveLeftToRight {
+    0% {
+        transform: translateX(-50vw);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+    }

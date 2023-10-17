@@ -28,6 +28,9 @@ export class LoginPage implements OnInit {
     const contraseña = this.password;
 
     this.componente.validacionLogin(username,contraseña);
+    this.password = '';
+    this.username= '';
+
   }
 
   async vistaRecuperar(){
