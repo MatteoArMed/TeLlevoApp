@@ -1,9 +1,21 @@
 
-ion-card{
-    position: grid;
-    max-width: 16em;
-    
+div{
+    margin-top: 4em;
+    display: grid;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+}
 
+div .Ingreso{
+    border: 1px solid;
+    padding: 1em;
+}
+ion-label{
+    margin: 0.5em;
+}
+ion-button{
+    margin: 0.5em;
 }
 
 @keyframes slideAndFade {

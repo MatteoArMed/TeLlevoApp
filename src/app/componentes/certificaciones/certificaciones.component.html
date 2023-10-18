@@ -1,11 +1,17 @@
-<div class="ion-padding">
+<div class="Certificados">
+  <div class="Ingreso">
+    <ion-label>Nombre</ion-label>
+    <input type="text" [(ngModel)]="Nombre">
+    <ion-label>Apellido</ion-label>
+    <input type="text" [(ngModel)]="Apellido">
+    <ion-label>Carrera</ion-label>
+    <input type="text" [(ngModel)]="Carrera">
+    <ion-label>Horario</ion-label>
+    <input type="text" [(ngModel)]="Horario">
+    <ion-label>Sede</ion-label>
+    <input type="text" [(ngModel)]="Sede">
+    <ion-button (click)="Ingresar()">Enviar</ion-button>
+    <ion-button (click)="LimpiarCampos()">Limpiar</ion-button>
+  </div>
 
-  
-  
-  <div class="container">
-    <ion-card >  
-          <ion-text>Bienvenido {{ username }}</ion-text>
-        </ion-card>
-      </div>
-      
 </div>

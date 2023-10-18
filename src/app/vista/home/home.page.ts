@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
   }
   
   username: string = ''
-
+  
   ngOnInit() {
 
   }
@@ -28,7 +28,7 @@ export class HomePage implements OnInit {
     
   }
 
-  selectedSegment: string = 'certificaciones'; // Inicializa con el valor predeterminado
+  selectedSegment: string = 'home'; // Inicializa con el valor predeterminado
   
 
 

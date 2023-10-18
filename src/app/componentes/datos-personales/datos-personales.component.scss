@@ -1,3 +1,30 @@
-div{
-    margin-top: 3em;
+
+.datos{
+    margin-top: 4em;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    width: 100vw; /* Ancho total de la ventana */
+
 }
+.Derecha{ /* Corresponde solo a la foto */
+    width: 150px;
+    height: 150px;
+    border: 1px solid;
+    margin-top: 1em;
+    
+}
+.Izquierda{
+    margin-top: 1em;
+
+}
+// .formulario{
+//     flex-grow: 1;
+
+// }
+// .foto{
+//     display: inline-flex;
+//     align-items: flex-end;
+//     width: fit-content;
+
+// }

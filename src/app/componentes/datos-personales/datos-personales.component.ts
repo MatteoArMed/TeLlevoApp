@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MetodosSqliteService, User } from '../metodos-sqlite.service';
+
 
 @Component({
   selector: 'app-datos-personales',
@@ -8,9 +10,14 @@ import { Router } from '@angular/router';
 })
 export class DatosPersonalesComponent  implements OnInit {
 
+  users = this.database.getUsers();
+  newUsername = '';
   username: string = '';
-  
-  constructor(private router: Router) { 
+  edad: number = 0;
+
+
+
+  constructor(private router: Router,private database: MetodosSqliteService) { 
     const state = window.history.state;
     if (state && state.username) {
       this.username = state.username;
@@ -19,7 +26,22 @@ export class DatosPersonalesComponent  implements OnInit {
 
   ngOnInit() {}
 
-  
+  async CrudAgregar(){
+    await this.database.AgregarUsuario(this.newUsername);
+    this.newUsername = '';
+  }
+
+  CrudModificar(user: User){
+    const active = user.active ? 1: 0;
+    this.database.ModificarUsuario(user.id.toString(),active)
+  }
+
+  CrudEliminar(user: User){
+    const active = user.active ? 1:0;
+    this.database.EliminarUsuario(active);
+  }
+
+
   selectedSegment: string = 'person'; // Inicializa con el valor predeterminado
 
   segmentChanged() {
