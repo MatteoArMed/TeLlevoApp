@@ -1,0 +1,67 @@
+
+<ion-menu contentId="main-content">
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <br>
+        <ion-title>Menu</ion-title>
+        <ion-list>
+            <ion-item>Programar Viaje</ion-item>
+            <ion-item>Viajes Realizados</ion-item>
+            <ion-item (click)="vistahome()">Salir</ion-item>
+        </ion-list>
+    </ion-toolbar>
+</ion-header>
+</ion-menu>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-label>{{ username }} </ion-label>
+            <ion-button>
+                <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+            </ion-button>
+            <ion-button>
+                <ion-icon slot="icon-only" name="search"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons side="start">
+        <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+    </ion-header>
+<div class="ion-page" id="main-content">
+<ion-content [fullscreen]="true" >
+    <div [ngSwitch]="selectedSegment">
+        <app-datos-personales *ngSwitchCase="'datos'"></app-datos-personales>
+        <app-certificaciones *ngSwitchCase="'certificaciones'"></app-certificaciones>
+        <app-experiencia *ngSwitchCase="'experiencia'"></app-experiencia>
+    </div>    
+
+
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar>
+        <!-- Segmento debajo del contenido -->
+        <ion-segment [(ngModel)]="selectedSegment" >
+            <ion-segment-button value="experiencia">
+                <ion-icon name="briefcase"></ion-icon> <!-- Icono de experiencia laboral -->
+                Experiencia
+            </ion-segment-button>
+            <ion-segment-button value="home">
+                <ion-icon name="home"></ion-icon> <!-- Icono de mis datos -->
+                Home
+            </ion-segment-button>
+            <ion-segment-button value="certificaciones">
+                <ion-icon name="medal"></ion-icon> <!-- Icono de certificaciones -->
+                Certificaciones
+            </ion-segment-button>
+            <ion-segment-button value="datos">
+                <ion-icon name="person"></ion-icon> <!-- Icono de mis datos -->
+                Mis Datos
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+    </ion-footer>
+</div>
+
+
+

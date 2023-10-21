@@ -1,0 +1,18 @@
+<div class="Certificados">
+  <div class="Ingreso">
+    <ion-label>Nombre:</ion-label>
+    <input type="text" [(ngModel)]="Nombre">
+    <ion-label>Apellido:</ion-label>
+    <input type="text" [(ngModel)]="Apellido">
+    <ion-label>Carrera:</ion-label>
+    <input type="text" [(ngModel)]="Carrera">
+    <ion-label>Sede:</ion-label>
+    <input type="text" [(ngModel)]="Sede">
+    <ion-label>Contraseña:</ion-label>
+    <input type="password" [(ngModel)]="Contrasenna">
+
+    <ion-button (click)="CrearUsuario()">Enviar</ion-button>
+    <ion-button (click)="LimpiarCampos()">Limpiar</ion-button>
+  </div>
+
+</div>

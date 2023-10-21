@@ -1,0 +1,27 @@
+
+
+<div *ngFor="let user of usuarios">
+<div class="datos">
+    <div class="Izquierda">
+        
+        <p>Nombres</p>
+        <p>{{ user.Nombre}}</p>
+        <p>Apellido</p>
+        <p>{{ user.Apellido}}</p>
+        <p>Carrera</p>
+        <p>{{ user.Carrera}}</p>
+        <p>Sede</p>
+        <p>{{ user.Sede}}</p>
+        <ion-button (click)="eliminarUsuario(user.id)">
+            <ion-icon name="trash"></ion-icon> <!-- Ícono de basurero para eliminar -->
+        </ion-button>
+    </div>
+    <div class="">
+        <img src="../../../assets/icon/foto_perfil.jpeg" class="Derecha">
+        <p>Nombre de la persona</p>
+        <p>{{ user.Nombre}}</p>
+        
+    </div>
+</div> 
+</div>
+
