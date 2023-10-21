@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MetodosSqliteService, User } from '../metodos-sqlite.service';
+import { MetodosSqliteService } from '../metodos-sqlite.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-certificaciones',
@@ -16,40 +17,29 @@ export class CertificacionesComponent  implements OnInit {
   }
 
   ngOnInit() {}
-  users = this.database.getUsers();
+
   username: string = '';
   newUsername: string = '';
-  Nombre = '';
-  Apellido = '';
-  Carrera = '';
-  Horario = '';
-  Sede = '';
+  Nombre: string =  '';
+  Apellido: string  = '';
+  Carrera: string  = '';
+  Sede: string  = '';
+  Contrasenna: string  = '';
 
   async LimpiarCampos(){
     this.Nombre = '';
     this.Apellido = '';
     this.Carrera = '';
-    this.Horario = '';
     this.Sede = '';
+    this.Contrasenna = '';
   }
 
-  async Ingresar(){
-    await this.database.IngresarDatos(1,1,this.Nombre,this.Apellido,this.Carrera,this.Horario,this.Sede)
+
+  async CrearUsuario(){
+    this.database.CrearUsuario(this.Contrasenna,this.Nombre,this.Apellido,this.Carrera,this.Sede);
+    this.LimpiarCampos();
   }
 
-  async CrudAgregar(){
-    await this.database.AgregarUsuario(this.newUsername);
-    this.newUsername = '';
-  }
 
-  CrudModificar(user: User){
-    const active = user.active ? 1: 0;
-    this.database.ModificarUsuario(user.id.toString(),active)
-  }
-
-  CrudEliminar(user: User){
-    const active = user.active ? 1:0;
-    this.database.EliminarUsuario(active);
-  }
 
 }

@@ -11,9 +11,9 @@ import { MetodosFuncionesService } from './componentes/metodos-funciones.service
 export class PerroGuardianGuard implements CanActivate {
 
   constructor(private userService: MetodosFuncionesService, private router: Router) {}
-
   canActivate(): boolean {
-    const usuarioCapturado = this.userService.obtenerUsuario();
+    const usuarioCapturado = Boolean(this.userService.obtenerUsuario());
+  
     if (usuarioCapturado) {
       return true; // Usuario capturado, permitir acceso
     } else {
@@ -21,4 +21,5 @@ export class PerroGuardianGuard implements CanActivate {
       return false;
     }
   }
+  
 }

@@ -15,26 +15,12 @@ import { SplashScreen } from '@capacitor/splash-screen';
 
 export class AppComponent {
   constructor(private toastController: ToastController, private router: Router,private metodos: MetodosFuncionesService,private database: MetodosSqliteService,) {
-    this.cargaInicial();
   }
-    
-    //parte de la conexion de BD
-    async cargaInicial(){
-      await this.database.inicioPlugin();
-      SplashScreen.hide();
-    }
 
-
-    // Lista de usuarios válidos y sus contraseñas
-    usuariosValidos = [
-      { usuario: 'data@duocuc.cl', contraseña: '1234' },
-      { usuario: 'Tais', contraseña: '1234' },
-      { usuario: 'Matteo', contraseña: '1234'},
-    ];
-    
-    
     // Validacion del servicio de validacion
     public validacionLogin (Data: string,Data2: string){
+      
+      
       return this.metodos.login(Data,Data2)
     }
 

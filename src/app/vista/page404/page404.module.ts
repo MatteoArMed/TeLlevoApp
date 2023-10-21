@@ -19,4 +19,7 @@ import { Page404Page } from './page404.page';
   ],
   declarations: [Page404Page]
 })
-export class Page404PageModule {}
+export class Page404PageModule {
+
+  
+}

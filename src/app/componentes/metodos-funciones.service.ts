@@ -1,22 +1,16 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
+import { MetodosSqliteService } from './metodos-sqlite.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MetodosFuncionesService {
   
-  constructor(private toastController: ToastController,private router: Router,) { }
+  constructor(private toastController: ToastController,private router: Router,private database: MetodosSqliteService) { }
 
-  // Lista de usuarios válidos y sus contraseñas
-  usuariosValidos = [
-    { usuario: 'data@duocuc.cl', contraseña: '1234' },
-    { usuario: 'Tais', contraseña: '1234' },
-    { usuario: 'Matteo', contraseña: '1234'},
-  ];
-
-
+  
   vistaRecuperar(){
     return this.router.navigate(['/recuperar-contrasenna'])
   };
@@ -27,14 +21,14 @@ export class MetodosFuncionesService {
   }
 
   validarCredenciales(Data: string, Data1: string): boolean {
+    
     // Buscar si las credenciales coinciden con la lista de usuarios válidos
-    const usuarioValido = this.usuariosValidos.find(usuario => {
-      return usuario.usuario === Data && usuario.contraseña === Data1;
-    });
+    const usuarioValido = this.database.validarYAutenticarUsuario(Data,Data1)
   
     // Si se encontró un usuario válido, retornar true; de lo contrario, false.
     return !!usuarioValido;
   }
+
 
   capturarUsuario(usuario: string): void {
     localStorage.setItem('usuario', usuario);
@@ -43,15 +37,15 @@ export class MetodosFuncionesService {
   obtenerUsuario(): string | null {
     return localStorage.getItem('usuario');
   }
-
+  
   async login(usuarioIngresado: string, contraseñaIngresada: string) {
 
       // Validar las credenciales
       const credencialesValidas = this.validarCredenciales(usuarioIngresado, contraseñaIngresada);
-    
+      const idUsuario = this.database.validarYAutenticarUsuario(usuarioIngresado, contraseñaIngresada)
       // Tomamos el usuario para enviarlo a la pagina Home
       const navigationExtras: NavigationExtras = {
-        state: { username: usuarioIngresado },
+        state: { username: usuarioIngresado ,id: idUsuario},
       };
     
       if (credencialesValidas) {
@@ -97,4 +91,6 @@ export class MetodosFuncionesService {
     return correoValido;
     
   } 
+
+  
 }

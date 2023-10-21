@@ -4,6 +4,9 @@ import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular'; // Importa AnimationController
 
+import { MetodosFuncionesService } from 'src/app/componentes/metodos-funciones.service';
+
+
 @Component({
   selector: 'app-page404',
   templateUrl: './page404.page.html',
@@ -23,7 +26,8 @@ export class Page404Page implements OnInit {
     private toastController: ToastController,
     private animationCtrl: AnimationController, // Agrega AnimationController
     private alertController: AlertController,
-    private activeroute: ActivatedRoute
+    private activeroute: ActivatedRoute,
+    private metodos: MetodosFuncionesService,
   ) {}
 
   ngOnInit() {
@@ -32,6 +36,10 @@ export class Page404Page implements OnInit {
     });
   }
 
+  async vistaLogin(){
+    this.metodos.vistaLogin()
+
+  }
   // Función para limpiar los campos y aplicar animación
   async limpiarCampos() {
     // Animación para los campos nombre y apellido
@@ -43,28 +51,6 @@ export class Page404Page implements OnInit {
 
     await animation.play();
 
-    // Limpiar los campos
-    this.nombre = '';
-    this.apellido = '';
-    this.nivelEducacion = '';
-    this.fechaNacimiento = '';
   }
-
-  // Función para mostrar la información en un mensaje emergente
-  mostrarInformacion() {
-    
-    (this.nombre!="" && this.apellido!="") &&
-    this.alertaMensaje("Usuario", "Su nombre es " + this.nombre + " " + this.apellido);
-  }
-
-  async alertaMensaje(titulo:string, mensaje:string){
-    const alerta = await this.alertController.create(({
-      header:titulo,
-      message:mensaje,
-      buttons:['Okey']
-    }));
-    await alerta.present();
-  }
-  
 
 }

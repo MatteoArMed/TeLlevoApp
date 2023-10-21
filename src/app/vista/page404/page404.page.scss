@@ -15,6 +15,15 @@ ion-content{
         } 
     }  
 
+    ion-button{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        width: 20vw;
+        margin-left: 35%;
+    }
+        
+
     h1 {
     animation: slideAndFade 10s infinite, slideAndFadeReverse 10s infinite;
     /* 5s es la duración de la animación (2500ms + 2500ms) */

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MetodosSqliteService, User } from '../metodos-sqlite.service';
+import { MetodosSqliteService, Usuarios } from '../metodos-sqlite.service';
 
 
 @Component({
@@ -10,37 +10,55 @@ import { MetodosSqliteService, User } from '../metodos-sqlite.service';
 })
 export class DatosPersonalesComponent  implements OnInit {
 
-  users = this.database.getUsers();
   newUsername = '';
   username: string = '';
-  edad: number = 0;
-
-
-
+  id: number = 0;
+  toastController: any;
+  
   constructor(private router: Router,private database: MetodosSqliteService) { 
     const state = window.history.state;
-    if (state && state.username) {
+    if (state && state.username && state.id) {
       this.username = state.username;
+      this.id = state.id;
+    }
+  }
+  
+  usuarios: Usuarios[] = [];
+
+  async ngOnInit() {
+    try {
+      this.usuarios = await this.database.loadUsers();
+      if (!this.usuarios) {
+        console.error('El usuario no se encontró en la base de datos.');
+      }
+    } catch (error) {
+      console.error('Error al cargar usuarios en el componente:', error);
     }
   }
 
-  ngOnInit() {}
-
-  async CrudAgregar(){
-    await this.database.AgregarUsuario(this.newUsername);
-    this.newUsername = '';
+  async eliminarUsuario(id: number) {
+    try {
+      // Lógica para eliminar el usuario con el ID proporcionado, por ejemplo:
+      await this.database.EliminarUsuario(id);
+  
+      // Después de eliminar el usuario, actualiza la lista de usuarios
+      this.usuarios = await this.database.loadUsers();
+  
+      const toast = await this.toastController.create({
+        message: 'Usuario eliminado correctamente.',
+        duration: 2000
+      });
+      await toast.present();
+    } catch (error) {
+      console.error('Error al eliminar usuario:', error);
+      const toast = await this.toastController.create({
+        message: 'Error al eliminar usuario. Por favor, inténtalo nuevamente.',
+        duration: 2000
+      });
+      await toast.present();
+    }
   }
-
-  CrudModificar(user: User){
-    const active = user.active ? 1: 0;
-    this.database.ModificarUsuario(user.id.toString(),active)
-  }
-
-  CrudEliminar(user: User){
-    const active = user.active ? 1:0;
-    this.database.EliminarUsuario(active);
-  }
-
+  
 
   selectedSegment: string = 'person'; // Inicializa con el valor predeterminado
 
