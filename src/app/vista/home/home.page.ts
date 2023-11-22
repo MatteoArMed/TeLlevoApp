@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
-import { RecuperarContrasennaPage } from '../recuperar-contrasenna/recuperar-contrasenna.page';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +8,7 @@ import { RecuperarContrasennaPage } from '../recuperar-contrasenna/recuperar-con
 })
 
 export class HomePage implements OnInit {
-  constructor(private router: Router,private activeroute: ActivatedRoute, private metodos: AppComponent) {
+  constructor( private metodos: AppComponent) {
     const state = window.history.state;
     if (state && state.username) {
       this.username = state.username;

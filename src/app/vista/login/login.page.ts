@@ -12,9 +12,8 @@ import { MetodosSqliteService } from 'src/app/componentes/metodos-sqlite.service
 })
 export class LoginPage implements OnInit {
 
-  constructor(private componente: AppComponent,private router: Router,private metodos: MetodosFuncionesService, private database: MetodosSqliteService) { }
+  constructor(private router: Router,private metodos: MetodosFuncionesService, private database: MetodosSqliteService) { }
 
-  
 
 
   username: string = '';
@@ -32,7 +31,7 @@ export class LoginPage implements OnInit {
 
     const username = this.username; 
     const contraseña = this.password;
-    this.componente.validacionLogin(username,contraseña);
+    this.metodos.login(username,contraseña);
     this.password = '';
 
   }
