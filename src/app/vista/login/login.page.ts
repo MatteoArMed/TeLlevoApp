@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { MetodosFuncionesService } from 'src/app/componentes/metodos-funciones.service';
 import { MetodosSqliteService } from 'src/app/componentes/metodos-sqlite.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -12,16 +13,17 @@ import { MetodosSqliteService } from 'src/app/componentes/metodos-sqlite.service
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router,private metodos: MetodosFuncionesService, private database: MetodosSqliteService) { }
+  constructor(private router: Router,private metodos: MetodosFuncionesService, private database: MetodosSqliteService,private toastController: ToastController)  { }
 
 
 
   username: string = '';
   password: string = '';
+  recordar: boolean = false;
 
   ngOnInit() {
 
-    this.database.initializePlugin();
+    // this.database.initializePlugin();
 
   }
   
@@ -29,10 +31,30 @@ export class LoginPage implements OnInit {
 
   async FunciondeValidacion(){
 
-    const username = this.username; 
-    const contraseña = this.password;
-    this.metodos.login(username,contraseña);
-    this.password = '';
+    if(this.username === '' && this.password === ''){
+      const toast = await this.toastController.create({
+        message: 'Los campos no pueden estar vacios, favor ingresa datos.',
+        duration: 2000
+      });
+      await toast.present();
+    }else if(this.username !== '' && this.password !== ''){
+      const username = this.username; 
+      const contraseña = this.password;
+      this.metodos.login(username,contraseña);
+      if(this.recordar){
+        this.password = '';
+      }else{
+        this.username = '';
+        this.password = '';
+      }
+    }
+    else{
+      const toast = await this.toastController.create({
+        message: 'Correo o contraseña invalidos, favor intentar nuevamente.',
+        duration: 2000
+      });
+      await toast.present();
+    }
 
   }
 

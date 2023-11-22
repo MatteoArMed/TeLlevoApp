@@ -7,6 +7,8 @@
     <ion-label>Contraseña</ion-label>
     <ion-input [(ngModel)]="password" type="password"></ion-input>
     <ion-button (click)="FunciondeValidacion()">Iniciar Sesión</ion-button>
+    <ion-label>¿Deseas recordar la cuenta?</ion-label>
+    <input type="checkbox" [(ngModel)]="recordar">
     <ion-button (click)="vistaRecuperar()" >¿Olvidaste tu contraseña?</ion-button>
   </div>
 </ion-content>

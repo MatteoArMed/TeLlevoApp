@@ -25,34 +25,34 @@ export class MetodosSqliteService {
   
   constructor() { }
 
-
-  async initializePlugin() {
-    try {
-      this.db = await this.sqlite.createConnection(DB_USERS, false, 'no-encryption', 1, false);
-      await this.db.open();
+  //dbappionic.cnebgscyavax.us-east-1.rds.amazonaws.com
+  // async initializePlugin() {
+  //   try {
+  //     this.db = await this.sqlite.createConnection(DB_USERS, false, 'no-encryption', 1, false);
+  //     await this.db.open();
   
-      const userSchema = `CREATE TABLE IF NOT EXISTS Usuario (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        Contrasenna TEXT NOT NULL,
-        Nombre TEXT NOT NULL,
-        Apellido TEXT NOT NULL,
-        Carrera TEXT NOT NULL,
-        Sede TEXT NOT NULL
-      );`;
-      await this.db.execute(userSchema);
+  //     const userSchema = `CREATE TABLE IF NOT EXISTS Usuario (
+  //       id INTEGER PRIMARY KEY AUTOINCREMENT,
+  //       Contrasenna TEXT NOT NULL,
+  //       Nombre TEXT NOT NULL,
+  //       Apellido TEXT NOT NULL,
+  //       Carrera TEXT NOT NULL,
+  //       Sede TEXT NOT NULL
+  //     );`;
+  //     await this.db.execute(userSchema);
       
-      const existingUsers = await this.loadUsers();
+  //     const existingUsers = await this.loadUsers();
     
-      if (existingUsers.length === 0) {
-        // Si no hay usuarios en la base de datos, crea usuarios de prueba
-        await this.CrearUsuario('1234','Matteo','Araneda','Ingeniero', 'Antonio Varas');
-        await this.CrearUsuario('1234','Tais','Socias','Ingeniera', 'Antonio Varas');
-      }
-    } catch (error) {
-      console.error('Error al inicializar el plugin:', error);
-      throw error;
-    }
-  }
+  //     if (existingUsers.length === 0) {
+  //       // Si no hay usuarios en la base de datos, crea usuarios de prueba
+  //       await this.CrearUsuario('1234','Matteo','Araneda','Ingeniero', 'Antonio Varas');
+  //       await this.CrearUsuario('1234','Tais','Socias','Ingeniera', 'Antonio Varas');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error al inicializar el plugin:', error);
+  //     throw error;
+  //   }
+  // }
 
   async validar(Nombre: string, Contrasenna: string){
     try{
