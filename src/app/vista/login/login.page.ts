@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MetodosFuncionesService } from 'src/app/componentes/metodos-funciones.service';
-import { MetodosSqliteService } from 'src/app/componentes/metodos-sqlite.service';
 import { ToastController } from '@ionic/angular';
 
 
@@ -13,7 +12,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router,private metodos: MetodosFuncionesService, private database: MetodosSqliteService,private toastController: ToastController)  { }
+  constructor(private router: Router,private metodos: MetodosFuncionesService,private toastController: ToastController)  { }
 
 
 

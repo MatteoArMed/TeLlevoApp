@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-import { ToastController } from '@ionic/angular';
-import { Router } from '@angular/router';
 
 import { MetodosFuncionesService } from './componentes/metodos-funciones.service';
 
-import { MetodosSqliteService } from './componentes/metodos-sqlite.service';
-import { SplashScreen } from '@capacitor/splash-screen';
+
 
 @Component({
   selector: 'app-root',
@@ -14,7 +11,7 @@ import { SplashScreen } from '@capacitor/splash-screen';
 })
 
 export class AppComponent {
-  constructor(private toastController: ToastController, private router: Router,private metodos: MetodosFuncionesService,private database: MetodosSqliteService,) {
+  constructor(private metodos: MetodosFuncionesService,) {
   }
 
     // Validacion del servicio de validacion
