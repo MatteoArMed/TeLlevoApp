@@ -29,7 +29,20 @@ ion-content{
     /* 5s es la duración de la animación (2500ms + 2500ms) */
 }
 
+    //Caja
+    .caja{
+        position: absolute;
+        top: 50%;
+        left: 50%;        
+        transform: translate(-50%, -50%);
+        // justify-items: center;
+        // align-items: center;
+        max-width: 20vw;
+        border: solid 1px black;
+    }
 
+
+    //Animaciones
     @keyframes slideAndFade {
     100% {
         transform: translateX(0);

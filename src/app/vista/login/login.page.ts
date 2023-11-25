@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppComponent } from 'src/app/app.component';
 import { MetodosFuncionesService } from 'src/app/componentes/metodos-funciones.service';
 import { MetodosSqliteService } from 'src/app/componentes/metodos-sqlite.service';
 import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-login',

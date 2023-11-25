@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
+import { MetodosFuncionesService } from 'src/app/componentes/metodos-funciones.service'; 
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import { AppComponent } from 'src/app/app.component';
 })
 
 export class HomePage implements OnInit {
-  constructor( private metodos: AppComponent) {
+  constructor( private metodos: MetodosFuncionesService) {
     const state = window.history.state;
     if (state && state.username) {
       this.username = state.username;

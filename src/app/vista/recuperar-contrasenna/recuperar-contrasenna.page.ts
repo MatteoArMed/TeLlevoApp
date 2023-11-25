@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AppComponent } from 'src/app/app.component';
+import { MetodosFuncionesService } from 'src/app/componentes/metodos-funciones.service'; 
 
 @Component({
   selector: 'app-recuperar-contrasenna',
@@ -9,7 +9,7 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class RecuperarContrasennaPage implements OnInit {
 
-  constructor(private metodos: AppComponent) { }
+  constructor(private metodos: MetodosFuncionesService) { }
 
   ngOnInit() {
   }
@@ -20,12 +20,12 @@ export class RecuperarContrasennaPage implements OnInit {
     return this.metodos.vistaLogin()
   }
 
-  async validaCorreo(){
+  async validacionCorreo(){
 
-    const resultado = await this.metodos.validaCorreo(this.correoElectronico);
+    const resultado = await this.metodos.validarCorreo(this.correoElectronico);
   
     if (resultado) {
-      this.metodos.validaCorreo(this.correoElectronico)
+      this.metodos.validarCorreo(this.correoElectronico)
       this.metodos.vistaLogin()
     } 
   }

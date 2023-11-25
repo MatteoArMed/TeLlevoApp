@@ -1,6 +1,7 @@
 import { Injectable, WritableSignal, signal } from '@angular/core';
 import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
 
+// import * as mysql from 'mysql2/promise';
 
 const DB_USERS = 'myuserdb';
 
@@ -25,34 +26,60 @@ export class MetodosSqliteService {
   
   constructor() { }
 
-  //dbappionic.cnebgscyavax.us-east-1.rds.amazonaws.com
-  // async initializePlugin() {
-  //   try {
-  //     this.db = await this.sqlite.createConnection(DB_USERS, false, 'no-encryption', 1, false);
-  //     await this.db.open();
+  // Configuración de la conexión a MySQL
+  // const connectionConfig = {
+  //   host: 'mysql-bd.cnebgscyavax.us-east-1.rds.amazonaws.com:3306',
+  //   user: 'IonicAdmin>',
+  //   password: 'adminadmin',
+  //   database: 'BD_Ionic',
+  // };
   
-  //     const userSchema = `CREATE TABLE IF NOT EXISTS Usuario (
-  //       id INTEGER PRIMARY KEY AUTOINCREMENT,
-  //       Contrasenna TEXT NOT NULL,
-  //       Nombre TEXT NOT NULL,
-  //       Apellido TEXT NOT NULL,
-  //       Carrera TEXT NOT NULL,
-  //       Sede TEXT NOT NULL
-  //     );`;
-  //     await this.db.execute(userSchema);
-      
-  //     const existingUsers = await this.loadUsers();
-    
-  //     if (existingUsers.length === 0) {
-  //       // Si no hay usuarios en la base de datos, crea usuarios de prueba
-  //       await this.CrearUsuario('1234','Matteo','Araneda','Ingeniero', 'Antonio Varas');
-  //       await this.CrearUsuario('1234','Tais','Socias','Ingeniera', 'Antonio Varas');
-  //     }
+  // // Función para ejecutar una consulta
+  // async function executeQuery() {
+  //   // Crear una conexión
+  //   const connection = await mysql.createConnection(connectionConfig);
+  
+  //   try {
+  //     // Ejecutar una consulta
+  //     const [rows, fields] = await connection.execute('SELECT * FROM Usuario');
+  
+  //     // Procesar los resultados
+  //     console.log('Filas seleccionadas:', rows);
   //   } catch (error) {
-  //     console.error('Error al inicializar el plugin:', error);
-  //     throw error;
-  //   }
-  // }
+  //     console.error('Error al ejecutar la consulta:', error);
+  //   } finally {
+  //     // Cerrar la conexión
+  //     await connection.end();
+    // }
+  //dbappionic.cnebgscyavax.us-east-1.rds.amazonaws.com
+
+  async initializePlugin() {
+    try {
+      this.db = await this.sqlite.createConnection(DB_USERS, false, 'no-encryption', 1, false);
+      await this.db.open();
+  
+      const userSchema = `CREATE TABLE IF NOT EXISTS Usuario (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        Contrasenna TEXT NOT NULL,
+        Nombre TEXT NOT NULL,
+        Apellido TEXT NOT NULL,
+        Carrera TEXT NOT NULL,
+        Sede TEXT NOT NULL
+      );`;
+      await this.db.execute(userSchema);
+      
+      const existingUsers = await this.loadUsers();
+    
+      if (existingUsers.length === 0) {
+        // Si no hay usuarios en la base de datos, crea usuarios de prueba
+        await this.CrearUsuario('1234','Matteo','Araneda','Ingeniero', 'Antonio Varas');
+        await this.CrearUsuario('1234','Tais','Socias','Ingeniera', 'Antonio Varas');
+      }
+    } catch (error) {
+      console.error('Error al inicializar el plugin:', error);
+      throw error;
+    }
+  }
 
   async validar(Nombre: string, Contrasenna: string){
     try{

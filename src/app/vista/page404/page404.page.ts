@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
-import { ToastController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular'; // Importa AnimationController
 
 import { MetodosFuncionesService } from 'src/app/componentes/metodos-funciones.service';
 
+import { ConexionMySqlService } from 'src/app/conexion-my-sql.service'; 
 
 @Component({
   selector: 'app-page404',
@@ -21,25 +19,27 @@ export class Page404Page implements OnInit {
   fechaNacimiento: string = '';
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private toastController: ToastController,
     private animationCtrl: AnimationController, // Agrega AnimationController
-    private alertController: AlertController,
-    private activeroute: ActivatedRoute,
     private metodos: MetodosFuncionesService,
+    private conexion: ConexionMySqlService
   ) {}
 
   ngOnInit() {
-    this.activeroute.queryParams.subscribe((params) => {
-      this.username = params['username'];
-    });
+
   }
+
+  query = ''
 
   async vistaLogin(){
     this.metodos.vistaLogin()
 
   }
+
+
+  // async pruebaSQL(){
+  //   this.conexion.prueba()
+  // }
+
   // Función para limpiar los campos y aplicar animación
   async limpiarCampos() {
     // Animación para los campos nombre y apellido
