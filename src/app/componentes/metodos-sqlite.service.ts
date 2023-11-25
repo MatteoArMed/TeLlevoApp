@@ -1,13 +1,6 @@
-import { Injectable, WritableSignal, signal } from '@angular/core';
+import {  WritableSignal, signal } from '@angular/core';
 import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
 
-<<<<<<< HEAD
-import * as mysql from 'mysql2/promise';
-=======
-// import * as mysql from 'mysql2/promise';
->>>>>>> TeLlevoAppDev-MatteoTesting
-
-const DB_USERS = 'myuserdb';
 
 export interface Usuarios{
   id: number;
@@ -18,104 +11,45 @@ export interface Usuarios{
   Sede: string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
 
+const DB_USERS = 'myuserdb';
 export class MetodosSqliteService {
-  
+
   private sqlite:  SQLiteConnection = new SQLiteConnection(CapacitorSQLite);
   private db!: SQLiteDBConnection;
   private Usuarios: WritableSignal<Usuarios[]> = signal<Usuarios[]>([]);
   
   constructor() { }
 
-  // Configuración de la conexión a MySQL
-  // const connectionConfig = {
-  //   host: 'mysql-bd.cnebgscyavax.us-east-1.rds.amazonaws.com:3306',
-  //   user: 'IonicAdmin>',
-  //   password: 'adminadmin',
-  //   database: 'BD_Ionic',
-  // };
-  
-  // // Función para ejecutar una consulta
-  // async function executeQuery() {
-  //   // Crear una conexión
-  //   const connection = await mysql.createConnection(connectionConfig);
-  
-  //   try {
-  //     // Ejecutar una consulta
-  //     const [rows, fields] = await connection.execute('SELECT * FROM Usuario');
-  
-  //     // Procesar los resultados
-  //     console.log('Filas seleccionadas:', rows);
-  //   } catch (error) {
-  //     console.error('Error al ejecutar la consulta:', error);
-  //   } finally {
-  //     // Cerrar la conexión
-  //     await connection.end();
-    // }
-  //dbappionic.cnebgscyavax.us-east-1.rds.amazonaws.com
-
-  
-
-
   async initializePlugin() {
-    // try {
-    //   this.db = await this.sqlite.createConnection(DB_USERS, false, 'no-encryption', 1, false);
-    //   await this.db.open();
+    try {
+      this.db = await this.sqlite.createConnection(DB_USERS, false, 'no-encryption', 1, false);
+      await this.db.open();
   
-    //   const userSchema = `CREATE TABLE IF NOT EXISTS Usuario (
-    //     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    //     Contrasenna TEXT NOT NULL,
-    //     Nombre TEXT NOT NULL,
-    //     Apellido TEXT NOT NULL,
-    //     Carrera TEXT NOT NULL,
-    //     Sede TEXT NOT NULL
-    //   );`;
-    //   await this.db.execute(userSchema);
+      const userSchema = `CREATE TABLE IF NOT EXISTS Usuario (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        Contrasenna TEXT NOT NULL,
+        Nombre TEXT NOT NULL,
+        Apellido TEXT NOT NULL,
+        Carrera TEXT NOT NULL,
+        Sede TEXT NOT NULL
+      );`;
+      await this.db.execute(userSchema);
       
-    //   const existingUsers = await this.loadUsers();
+      const existingUsers = await this.loadUsers();
     
-    //   if (existingUsers.length === 0) {
-    //     // Si no hay usuarios en la base de datos, crea usuarios de prueba
-    //     await this.CrearUsuario('1234','Matteo','Araneda','Ingeniero', 'Antonio Varas');
-    //     await this.CrearUsuario('1234','Tais','Socias','Ingeniera', 'Antonio Varas');
-    //   }
-    // } catch (error) {
-    //   console.error('Error al inicializar el plugin:', error);
-    //   throw error;
-    // }
+      if (existingUsers.length === 0) {
+        // Si no hay usuarios en la base de datos, crea usuarios de prueba
+        await this.CrearUsuario('1234','Matteo','Araneda','Ingeniero', 'Antonio Varas');
+        await this.CrearUsuario('1234','Tais','Socias','Ingeniera', 'Antonio Varas');
+      }
+    } catch (error) {
+      console.error('Error al inicializar el plugin:', error);
+      throw error;
+    }
   }
 
 
-// Configuración de la conexión a la base de datos en AWS
-const dbConfig = {
-  host: 'tu-endpoint-rds-en-aws.rds.amazonaws.com',
-  user: 'tu-usuario',
-  password: 'tu-contraseña',
-  database: 'tu-base-de-datos'
-};
-
-// Función para realizar una consulta a la base de datos
-async function queryDatabase() {
-  // Crear la conexión
-  const connection = await mysql.createConnection(dbConfig);
-
-  try {
-    // Realizar la consulta
-    const [rows, fields] = await connection.execute('SELECT * FROM tu_tabla');
-    console.log('Resultado de la consulta:', rows);
-  } catch (error) {
-    console.error('Error al realizar la consulta:', error);
-  } finally {
-    // Cerrar la conexión
-    await connection.end();
-  }
-}
-
-// Llamar a la función para realizar la consulta
-queryDatabase();
   async validar(Nombre: string, Contrasenna: string){
     try{
       const query = `SELECT * FROM Usuario WHERE Nombre = ? AND Contrasenna = ?;`;
@@ -193,6 +127,5 @@ queryDatabase();
       throw error;
     }
   }
-  
 
 }

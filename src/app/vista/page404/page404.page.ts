@@ -3,7 +3,6 @@ import { AnimationController } from '@ionic/angular'; // Importa AnimationContro
 
 import { MetodosFuncionesService } from 'src/app/componentes/metodos-funciones.service';
 
-import { ConexionMySqlService } from 'src/app/conexion-my-sql.service'; 
 
 @Component({
   selector: 'app-page404',
@@ -21,7 +20,6 @@ export class Page404Page implements OnInit {
   constructor(
     private animationCtrl: AnimationController, // Agrega AnimationController
     private metodos: MetodosFuncionesService,
-    private conexion: ConexionMySqlService
   ) {}
 
   ngOnInit() {
@@ -34,11 +32,6 @@ export class Page404Page implements OnInit {
     this.metodos.vistaLogin()
 
   }
-
-
-  // async pruebaSQL(){
-  //   this.conexion.prueba()
-  // }
 
   // Función para limpiar los campos y aplicar animación
   async limpiarCampos() {
