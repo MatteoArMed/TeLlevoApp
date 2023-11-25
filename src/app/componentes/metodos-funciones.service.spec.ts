@@ -6,7 +6,9 @@ describe('MetodosFuncionesService', () => {
   let service: MetodosFuncionesService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      
+    });
     service = TestBed.inject(MetodosFuncionesService);
   });
 

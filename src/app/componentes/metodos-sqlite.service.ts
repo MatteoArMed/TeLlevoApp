@@ -1,7 +1,11 @@
 import { Injectable, WritableSignal, signal } from '@angular/core';
 import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
 
+<<<<<<< HEAD
 import * as mysql from 'mysql2/promise';
+=======
+// import * as mysql from 'mysql2/promise';
+>>>>>>> TeLlevoAppDev-MatteoTesting
 
 const DB_USERS = 'myuserdb';
 
@@ -26,6 +30,32 @@ export class MetodosSqliteService {
   
   constructor() { }
 
+  // Configuración de la conexión a MySQL
+  // const connectionConfig = {
+  //   host: 'mysql-bd.cnebgscyavax.us-east-1.rds.amazonaws.com:3306',
+  //   user: 'IonicAdmin>',
+  //   password: 'adminadmin',
+  //   database: 'BD_Ionic',
+  // };
+  
+  // // Función para ejecutar una consulta
+  // async function executeQuery() {
+  //   // Crear una conexión
+  //   const connection = await mysql.createConnection(connectionConfig);
+  
+  //   try {
+  //     // Ejecutar una consulta
+  //     const [rows, fields] = await connection.execute('SELECT * FROM Usuario');
+  
+  //     // Procesar los resultados
+  //     console.log('Filas seleccionadas:', rows);
+  //   } catch (error) {
+  //     console.error('Error al ejecutar la consulta:', error);
+  //   } finally {
+  //     // Cerrar la conexión
+  //     await connection.end();
+    // }
+  //dbappionic.cnebgscyavax.us-east-1.rds.amazonaws.com
 
   
 
