@@ -1,20 +1,47 @@
-
-.datos{
-    margin-top: 4em;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-    width: 100vw; /* Ancho total de la ventana */
-
+.container {
+  margin-top: 20em;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-.Derecha{ /* Corresponde solo a la foto */
-    width: 150px;
-    height: 150px;
-    border: 1px solid;
-    margin-top: 1em;
-    
-}
-.Izquierda{
-    margin-top: 1em;
 
+.perfil-container {
+  display: flex;
+  align-items: center;
+}
+
+.perfil-image {
+  border: 1px solid;
+  padding: 1em;
+  margin-right: 1em;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.perfil-detalles {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  padding: 1em;
+}
+
+.label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  margin-right: 1em; 
+}
+
+ion-label {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  text-align: left; 
+}
+
+ion-button {
+  margin: 0.5em;
 }

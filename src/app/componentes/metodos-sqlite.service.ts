@@ -1,6 +1,7 @@
 import { Injectable, WritableSignal, signal } from '@angular/core';
 import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
 
+import * as mysql from 'mysql2/promise';
 
 const DB_USERS = 'myuserdb';
 
@@ -26,34 +27,65 @@ export class MetodosSqliteService {
   constructor() { }
 
 
-  async initializePlugin() {
-    try {
-      this.db = await this.sqlite.createConnection(DB_USERS, false, 'no-encryption', 1, false);
-      await this.db.open();
   
-      const userSchema = `CREATE TABLE IF NOT EXISTS Usuario (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        Contrasenna TEXT NOT NULL,
-        Nombre TEXT NOT NULL,
-        Apellido TEXT NOT NULL,
-        Carrera TEXT NOT NULL,
-        Sede TEXT NOT NULL
-      );`;
-      await this.db.execute(userSchema);
+
+
+  async initializePlugin() {
+    // try {
+    //   this.db = await this.sqlite.createConnection(DB_USERS, false, 'no-encryption', 1, false);
+    //   await this.db.open();
+  
+    //   const userSchema = `CREATE TABLE IF NOT EXISTS Usuario (
+    //     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    //     Contrasenna TEXT NOT NULL,
+    //     Nombre TEXT NOT NULL,
+    //     Apellido TEXT NOT NULL,
+    //     Carrera TEXT NOT NULL,
+    //     Sede TEXT NOT NULL
+    //   );`;
+    //   await this.db.execute(userSchema);
       
-      const existingUsers = await this.loadUsers();
+    //   const existingUsers = await this.loadUsers();
     
-      if (existingUsers.length === 0) {
-        // Si no hay usuarios en la base de datos, crea usuarios de prueba
-        await this.CrearUsuario('1234','Matteo','Araneda','Ingeniero', 'Antonio Varas');
-        await this.CrearUsuario('1234','Tais','Socias','Ingeniera', 'Antonio Varas');
-      }
-    } catch (error) {
-      console.error('Error al inicializar el plugin:', error);
-      throw error;
-    }
+    //   if (existingUsers.length === 0) {
+    //     // Si no hay usuarios en la base de datos, crea usuarios de prueba
+    //     await this.CrearUsuario('1234','Matteo','Araneda','Ingeniero', 'Antonio Varas');
+    //     await this.CrearUsuario('1234','Tais','Socias','Ingeniera', 'Antonio Varas');
+    //   }
+    // } catch (error) {
+    //   console.error('Error al inicializar el plugin:', error);
+    //   throw error;
+    // }
   }
 
+
+// Configuración de la conexión a la base de datos en AWS
+const dbConfig = {
+  host: 'tu-endpoint-rds-en-aws.rds.amazonaws.com',
+  user: 'tu-usuario',
+  password: 'tu-contraseña',
+  database: 'tu-base-de-datos'
+};
+
+// Función para realizar una consulta a la base de datos
+async function queryDatabase() {
+  // Crear la conexión
+  const connection = await mysql.createConnection(dbConfig);
+
+  try {
+    // Realizar la consulta
+    const [rows, fields] = await connection.execute('SELECT * FROM tu_tabla');
+    console.log('Resultado de la consulta:', rows);
+  } catch (error) {
+    console.error('Error al realizar la consulta:', error);
+  } finally {
+    // Cerrar la conexión
+    await connection.end();
+  }
+}
+
+// Llamar a la función para realizar la consulta
+queryDatabase();
   async validar(Nombre: string, Contrasenna: string){
     try{
       const query = `SELECT * FROM Usuario WHERE Nombre = ? AND Contrasenna = ?;`;
@@ -88,7 +120,7 @@ export class MetodosSqliteService {
       throw error;
     }
   }
-
+  
   
   async loadUsers(): Promise<Usuarios[]> {
     try {

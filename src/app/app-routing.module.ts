@@ -54,7 +54,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./vista/home/home.module').then( m => m.HomePageModule),
-    canActivate: [PerroGuardianGuard] // Proteger la ruta 'home' con el guard
+    // canActivate: [PerroGuardianGuard] // Proteger la ruta 'home' con el guard
   },
   {
     path: 'recuperar-contrasenna',
